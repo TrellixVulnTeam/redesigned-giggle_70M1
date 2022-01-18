@@ -182,3 +182,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Load Options Pages file.
+ */
+require get_template_directory() . '/inc/options-pages/options-pages.php';

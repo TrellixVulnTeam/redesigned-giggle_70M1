@@ -18,6 +18,21 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+    <?php $brandColours = get_field('brand_colours', 'option');  ?>
+
+    <style>
+        :root {
+            --brand-color-1: <?php echo $brandColours['brand_colour_1']; ?>;
+            --brand-color-2: <?php echo $brandColours['brand_colour_2']; ?>;
+            --brand-color-3: <?php echo $brandColours['brand_colour_3']; ?>;
+            --brand-color-4: <?php echo $brandColours['brand_colour_4']; ?>;
+        }
+
+        body {
+            /* background-color: var(--brand-color-1) !important; */
+        }
+    </style>
 </head>
 
 <body <?php body_class(); ?>>
