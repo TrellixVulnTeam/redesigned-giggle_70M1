@@ -101,10 +101,10 @@
 	// $secondaryButtonBgHover = $secondaryButtonBg->isDark() ? $secondaryButtonBg->lighten() : $secondaryButtonBg->darken();
 
 	$primaryButtonBg = $buttonStyling['primary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['primary_button']['background_colour']]) : 'transparent';
-	$primaryButtonBgHover = $tertiaryButtonBg !== 'transparent' ? $primaryButtonBg->isDark() ? "#" . $primaryButtonBg->lighten() : $primaryButtonBg->darken() : 'transparent';
+	$primaryButtonBgHover = $primaryButtonBg !== 'transparent' ? $primaryButtonBg->isDark() ? "#" . $primaryButtonBg->lighten() : $primaryButtonBg->darken() : 'transparent';
 
 	$secondaryButtonBg = $buttonStyling['secondary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['secondary_button']['background_colour']]) : 'transparent';
-	$secondaryButtonBgHover = $tertiaryButtonBg !== 'transparent' ? $secondaryButtonBg->isDark() ? "#" . $secondaryButtonBg->lighten() : $secondaryButtonBg->darken() : 'transparent';
+	$secondaryButtonBgHover = $secondaryButtonBg !== 'transparent' ? $secondaryButtonBg->isDark() ? "#" . $secondaryButtonBg->lighten() : $secondaryButtonBg->darken() : 'transparent';
 
 	$tertiaryButtonBg = $buttonStyling['tertiary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['tertiary_button']['background_colour']]) : 'transparent';
 	$tertiaryButtonBgHover = $tertiaryButtonBg !== 'transparent' ? $tertiaryButtonBg->isDark() ? "#" . $tertiaryButtonBg->lighten() : $tertiaryButtonBg->darken() : 'transparent';
