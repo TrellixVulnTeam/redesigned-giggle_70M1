@@ -46,6 +46,10 @@ ins {
 	text-decoration: none;
 }
 
-big {
-	font-size: 125%;
+big, .large {
+	font-size: $font-size-rel__large;
+}
+
+small, .small {
+	font-size: $font-size-rel__small;
 }

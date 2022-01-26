@@ -388,7 +388,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: var(--font-family--body);
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -400,6 +400,27 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: var(--font-family--headings);
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.125rem;
+}
+
+h4 {
+	font-size: 1rem;
+}
+
+h5 {
+	font-size: 0.875rem;
 }
 
 p {
@@ -450,14 +471,44 @@ ins {
 	text-decoration: none;
 }
 
-big {
-	font-size: 125%;
+big, .large {
+	font-size: 1.125rem;
+}
+
+small, .small {
+	font-size: 0.875rem;
 }
 
 /* Elements
 --------------------------------------------- */
 body {
 	background: #fff;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.container--xs {
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.container--np {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.container-sup {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.container-sup--xs {
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
 }
 
 hr {
@@ -515,6 +566,94 @@ table {
 	width: 100%;
 }
 
+.bg-1 {
+	background-color: var(--bg-color-1);
+	color: var(--bg-color-1--font-color);
+}
+
+.bg-1 a:not(.action), .bg-1 a:not(.action):visited, .bg-1 .strip-button {
+	color: var(--bg-color-1--link-color);
+}
+
+.bg-2 {
+	background-color: var(--bg-color-2);
+	color: var(--bg-color-2--font-color);
+}
+
+.bg-2 a:not(.action), .bg-2 a:not(.action):visited, .bg-2 .strip-button {
+	color: var(--bg-color-2--link-color);
+}
+
+.bg-3 {
+	background-color: var(--bg-color-3);
+	color: var(--bg-color-3--font-color);
+}
+
+.bg-3 a:not(.action), .bg-3 a:not(.action):visited, .bg-3 .strip-button {
+	color: var(--bg-color-3--link-color);
+}
+
+.notice-bar__inner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notice-bar__inner p {
+	padding: 0 0 0 0.5rem;
+	margin: 0;
+}
+
+.notice-bar__inner ion-icon {
+	font-size: 1.5rem;
+}
+
+.site-header__inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.site-header .site-branding {
+	display: flex;
+	align-items: center;
+}
+
+.site-header .site-branding img + * {
+	padding-left: 0.875rem;
+	margin-left: 0.875rem;
+	border-left: 1px solid var(--brand-color-1);
+}
+
+.site-header .site-branding a {
+	text-decoration: none;
+}
+
+.extended-header__inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.extended-header .header-contact {
+	padding-left: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+
+.extended-header .header-contact li {
+	display: flex;
+	align-items: center;
+}
+
+.extended-header .header-contact li span {
+	padding-left: 0.5rem;
+}
+
+.extended-header .header-contact li:nth-of-type(n+1) {
+	padding-left: 1rem;
+}
+
 /* Links
 --------------------------------------------- */
 a {
@@ -567,6 +706,58 @@ input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
 	border-color: #aaa #bbb #bbb;
+}
+
+a.action, button.action, input[type="submit"].action, *.action {
+	padding: 0.5rem 0.875rem;
+	display: inline-block;
+	width: auto;
+	border-radius: 0.5rem;
+	border: 1px solid var(--brand-color-1);
+}
+
+a.action--primary, button.action--primary, input[type="submit"].action--primary, *.action--primary {
+	background-color: var(--primary-button--bg);
+	border-color: var(--primary-button--border);
+	color: var(--primary-button--text-color);
+}
+
+a.action--primary:hover, button.action--primary:hover, input[type="submit"].action--primary:hover, *.action--primary:hover {
+	background-color: var(--primary-button--bg--hover);
+}
+
+a.action--secondary, button.action--secondary, input[type="submit"].action--secondary, *.action--secondary {
+	background-color: var(--secondary-button--bg);
+	border-color: var(--secondary-button--border);
+	color: var(--secondary-button--text-color);
+}
+
+a.action--secondary:hover, button.action--secondary:hover, input[type="submit"].action--secondary:hover, *.action--secondary:hover {
+	background-color: var(--secondary-button--bg--hover);
+}
+
+a.action--tertiary, button.action--tertiary, input[type="submit"].action--tertiary, *.action--tertiary {
+	background-color: var(--tertiary-button--bg);
+	border-color: var(--tertiary-button--border);
+	color: var(--tertiary-button--text-color);
+}
+
+a.action--tertiary:hover, button.action--tertiary:hover, input[type="submit"].action--tertiary:hover, *.action--tertiary:hover {
+	background-color: var(--tertiary-button--bg--hover);
+}
+
+.strip-button {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	border-left: 1px solid var(--brand-color-1);
+	border-right: 1px solid var(--brand-color-1);
+}
+
+.strip-button span {
+	padding-left: 0.875rem;
 }
 
 input[type="text"],
@@ -627,8 +818,16 @@ textarea {
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
-	display: block;
-	width: 100%;
+	display: flex;
+}
+
+.main-navigation > *:nth-of-type(n+1) {
+	margin-left: 0.875rem;
+}
+
+.main-navigation .menu {
+	display: flex;
+	align-items: center;
 }
 
 .main-navigation ul {
@@ -669,6 +868,11 @@ textarea {
 
 .main-navigation li {
 	position: relative;
+	padding-right: 0.875rem;
+}
+
+.main-navigation li:last-of-type {
+	padding-right: 0;
 }
 
 .main-navigation a {

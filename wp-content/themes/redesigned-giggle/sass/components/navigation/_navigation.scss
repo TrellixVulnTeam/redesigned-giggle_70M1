@@ -1,6 +1,13 @@
 .main-navigation {
-	display: block;
-	width: 100%;
+	display: flex;
+	> *:nth-of-type(n+1) {
+		margin-left: $indent__s;
+	}
+
+	.menu {
+		display: flex;
+		align-items: center;
+	}
 
 	ul {
 		display: none;
@@ -51,6 +58,11 @@
 
 	li {
 		position: relative;
+		padding-right: $indent__s;
+
+		&:last-of-type {
+			padding-right: 0;
+		}
 
 		&:hover > a,
 		&.focus > a {

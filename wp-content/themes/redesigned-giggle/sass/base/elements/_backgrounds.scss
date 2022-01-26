@@ -1,0 +1,26 @@
+.bg-1 {
+    background-color: $bg-col-1;
+    color: $bg-col-1-text-col;
+
+    a:not(.action), a:not(.action):visited, .strip-button {
+        color: $bg-col-1-link-col;
+    }
+}
+
+.bg-2 {
+    background-color: $bg-col-2;
+    color: $bg-col-2-text-col;
+
+    a:not(.action), a:not(.action):visited, .strip-button {
+        color: $bg-col-2-link-col;
+    }
+}
+
+.bg-3 {
+    background-color: $bg-col-3;
+    color: $bg-col-3-text-col;
+
+    a:not(.action), a:not(.action):visited, .strip-button {
+        color: $bg-col-3-link-col;
+    }
+}

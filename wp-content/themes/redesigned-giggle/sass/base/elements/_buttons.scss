@@ -19,3 +19,58 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+a, button, input[type="submit"], * {
+	&.action {
+		padding: $indent__xs $indent__s;
+		display: inline-block;
+		width: auto;
+		border-radius: $border-radius__base;
+		border: $border;
+
+		&--primary {
+			// Primary button
+			background-color: $button-primary--bg-col;
+			border-color: $button-primary--border-col;
+			color: $button-primary--text-col;
+
+			&:hover {
+				background-color: $button-primary--bg-col--hover;
+			}
+		}
+
+		&--secondary {
+			background-color: $button-secondary--bg-col;
+			border-color: $button-secondary--border-col;
+			color: $button-secondary--text-col;
+
+			&:hover {
+				background-color: $button-secondary--bg-col--hover;
+			}
+		}
+
+		&--tertiary {
+			background-color: $button-tertiary--bg-col;
+			border-color: $button-tertiary--border-col;
+			color: $button-tertiary--text-col;
+
+			&:hover {
+				background-color: $button-tertiary--bg-col--hover;
+			}
+		}
+	}
+}
+
+.strip-button {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	border-left: $border;
+	border-right: $border;
+
+	span {
+		padding-left: $indent__s;
+	}
+}

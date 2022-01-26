@@ -1,2 +1,13 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
+
+$indent__base: 1rem;
+$indent__xl: $indent__base * 1.5;
+$indent__l: $indent__base * 1.125;
+$indent__s: $indent__base * 0.875;
+$indent__xs: $indent__base * 0.5;
+
+$border: 1px solid $border-color;
+
+$border-radius__base: $indent__xs;
+$border-radius__large: $indent__s;

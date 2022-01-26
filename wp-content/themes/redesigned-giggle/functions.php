@@ -187,3 +187,39 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Load Options Pages file.
  */
 require get_template_directory() . '/inc/options-pages/options-pages.php';
+
+/**
+ * Load Active gutenburg blocks file.
+ */
+require get_template_directory() . '/inc/active-blocks.php';
+
+/**
+ * Load custom acf blocks file.
+ */
+require get_template_directory() . '/inc/blocks.php';
+
+/**
+ * Load custom gutenberg block categories file.
+ */
+require get_template_directory() . '/inc/block-categories.php';
+
+//Remove Gutenberg Block Library CSS from loading on the frontend
+function smartwp_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+} 
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+
+// Update search button classes in form
+function as_adapt_search_form( $form ) {
+    $form = str_replace(
+        'search-submit',
+        'search-submit action action--primary',
+        $form
+    );
+
+    return $form;
+}
+
+add_filter( 'get_search_form', 'as_adapt_search_form' );
