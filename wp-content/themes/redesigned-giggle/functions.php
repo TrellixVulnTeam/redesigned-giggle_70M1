@@ -223,3 +223,8 @@ function as_adapt_search_form( $form ) {
 }
 
 add_filter( 'get_search_form', 'as_adapt_search_form' );
+
+function wpdocs_scripts_method() {
+    wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ) );
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_scripts_method' );

@@ -4,19 +4,22 @@ $brand-color-1--light: var(--brand-color-1--dark);
 
 $brand-color-2: var(--brand-color-2);
 $brand-color-1--light: var(--brand-color-2--light);
-$brand-color-1--light: var(--brand-color-2--dark);
+$brand-color-1--dark: var(--brand-color-2--dark);
 
 $brand-color-3: var(--brand-color-3);
 $brand-color-1--light: var(--brand-color-3--light);
-$brand-color-1--light: var(--brand-color-3--dark);
+$brand-color-1--dark: var(--brand-color-3--dark);
 
 $brand-color-4: var(--brand-color-4);
 $brand-color-1--light: var(--brand-color-4--light);
-$brand-color-1--light: var(--brand-color-4--dark);
+$brand-color-1--dark: var(--brand-color-4--dark);
 
 $bg-col-1: var(--bg-color-1);
+$bg-col-1--shade: var(--bg-color-1--shade);
 $bg-col-2: var(--bg-color-2);
+$bg-col-2--shade: var(--bg-color-2--shade);
 $bg-col-3: var(--bg-color-3);
+$bg-col-3--shade: var(--bg-color-3--shade);
 
 $bg-col-1-text-col: var(--bg-color-1--font-color);
 $bg-col-2-text-col: var(--bg-color-2--font-color);
@@ -29,16 +32,19 @@ $bg-col-3-link-col: var(--bg-color-3--link-color);
 $button-primary--bg-col: var(--primary-button--bg);
 $button-primary--bg-col--hover: var(--primary-button--bg--hover);
 $button-primary--border-col: var(--primary-button--border);
+$button-primary--border-col--hover: var(--primary-button--border--hover);
 $button-primary--text-col: var(--primary-button--text-color);
 
 $button-secondary--bg-col: var(--secondary-button--bg);
 $button-secondary--bg-col--hover: var(--secondary-button--bg--hover);
 $button-secondary--border-col: var(--secondary-button--border);
+$button-secondary--border-col--hover: var(--secondary-button--border--hover);
 $button-secondary--text-col: var(--secondary-button--text-color);
 
 $button-tertiary--bg-col: var(--tertiary-button--bg);
 $button-tertiary--bg-col--hover: var(--tertiary-button--bg--hover);
 $button-tertiary--border-col: var(--tertiary-button--border);
+$button-tertiary--border-col--hover: var(--tertiary-button--border--hover);
 $button-tertiary--text-col: var(--tertiary-button--text-color);
 
 $border-color: $brand-color-1;

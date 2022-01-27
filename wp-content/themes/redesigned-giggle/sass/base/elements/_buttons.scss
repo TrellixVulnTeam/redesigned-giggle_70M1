@@ -9,6 +9,7 @@ input[type="submit"] {
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
 	padding: 0.6em 1em 0.4em;
+	cursor: pointer;
 
 	&:hover {
 		border-color: $color__border-button-hover;
@@ -27,6 +28,8 @@ a, button, input[type="submit"], * {
 		width: auto;
 		border-radius: $border-radius__base;
 		border: $border;
+		transition: background ease-in-out .2s;
+		text-decoration: none;
 
 		&--primary {
 			// Primary button
@@ -36,6 +39,7 @@ a, button, input[type="submit"], * {
 
 			&:hover {
 				background-color: $button-primary--bg-col--hover;
+				border-color: $button-primary--border-col--hover;
 			}
 		}
 
@@ -46,6 +50,7 @@ a, button, input[type="submit"], * {
 
 			&:hover {
 				background-color: $button-secondary--bg-col--hover;
+				border-color: $button-secondary--border-col--hover;
 			}
 		}
 
@@ -56,6 +61,7 @@ a, button, input[type="submit"], * {
 
 			&:hover {
 				background-color: $button-tertiary--bg-col--hover;
+				border-color: $button-tertiary--border-col--hover;
 			}
 		}
 	}
@@ -67,10 +73,21 @@ a, button, input[type="submit"], * {
 	background-color: transparent;
 	border-radius: 0;
 	border: none;
-	border-left: $border;
-	border-right: $border;
+
+	ion-icon {
+		font-size: $font-size-rel__large;
+	}
+
+	// border-left: $border;
+	// border-right: $border;
 
 	span {
 		padding-left: $indent__s;
 	}
+}
+
+.input-button {
+	border: none;
+	background: transparent;
+	padding: 0;
 }

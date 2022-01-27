@@ -7,7 +7,8 @@ $indent__l: $indent__base * 1.125;
 $indent__s: $indent__base * 0.875;
 $indent__xs: $indent__base * 0.5;
 
-$border: 1px solid $border-color;
+$borderThickness: 3px;
+$border: $borderThickness solid $border-color;
 
 $border-radius__base: $indent__xs;
 $border-radius__large: $indent__s;

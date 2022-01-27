@@ -94,20 +94,29 @@
 	$brandColorFourLight = $brandColorFour->lighten();
 	$brandColorFourDark = $brandColorFour->darken();
 
-	// $primaryButtonBg = new Color($buttonStyling['primary_button']['background_colour'] !== 'none' ?  $brandColours['brand_colour_' . $buttonStyling['primary_button']['background_colour']] : 'transparent');
-	// $primaryButtonBgHover = $primaryButtonBg->isDark() ? $primaryButtonBg->lighten() : $primaryButtonBg->darken();
+	$bgColOne = new Color($bgColours['background_colour_1']['colour']);
+	$bgColOneShade = $bgColOne->isDark() ? $bgColOne->lighten() : $bgColOne->darken();
 
-	// $secondaryButtonBg = new Color($buttonStyling['secondary_button']['background_colour'] !== 'none' ?  $brandColours['brand_colour_' . $buttonStyling['secondary_button']['background_colour']] : 'transparent');
-	// $secondaryButtonBgHover = $secondaryButtonBg->isDark() ? $secondaryButtonBg->lighten() : $secondaryButtonBg->darken();
+	$bgColTwo = new Color($bgColours['background_colour_2']['colour']);
+	$bgColTwoShade = $bgColTwo->isDark() ? $bgColTwo->lighten() : $bgColTwo->darken();
+
+	$bgColThree = new Color($bgColours['background_colour_3']['colour']);
+	$bgColThreeShade = $bgColThree->isDark() ? $bgColThree->lighten() : $bgColThree->darken();
 
 	$primaryButtonBg = $buttonStyling['primary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['primary_button']['background_colour']]) : 'transparent';
 	$primaryButtonBgHover = $primaryButtonBg !== 'transparent' ? $primaryButtonBg->isDark() ? "#" . $primaryButtonBg->lighten() : $primaryButtonBg->darken() : 'transparent';
+	$primaryButtonBorderCol = $buttonStyling['primary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['primary_button']['border_colour']]) : 'transparent';
+	$primaryButtonBorderColHover = $primaryButtonBorderCol !== 'transparent' ? $primaryButtonBorderCol->isDark() ? "#" . $primaryButtonBorderCol->lighten() : $primaryButtonBorderCol->darken() : 'transparent';
 
 	$secondaryButtonBg = $buttonStyling['secondary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['secondary_button']['background_colour']]) : 'transparent';
 	$secondaryButtonBgHover = $secondaryButtonBg !== 'transparent' ? $secondaryButtonBg->isDark() ? "#" . $secondaryButtonBg->lighten() : $secondaryButtonBg->darken() : 'transparent';
+	$secondaryButtonBorderCol = $buttonStyling['secondary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['secondary_button']['border_colour']]) : 'transparent';
+	$secondaryButtonBorderColHover = $secondaryButtonBorderCol !== 'transparent' ? $secondaryButtonBorderCol->isDark() ? "#" . $secondaryButtonBorderCol->lighten() : $secondaryButtonBorderCol->darken() : 'transparent';
 
 	$tertiaryButtonBg = $buttonStyling['tertiary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['tertiary_button']['background_colour']]) : 'transparent';
 	$tertiaryButtonBgHover = $tertiaryButtonBg !== 'transparent' ? $tertiaryButtonBg->isDark() ? "#" . $tertiaryButtonBg->lighten() : $tertiaryButtonBg->darken() : 'transparent';
+	$tertiaryButtonBorderCol = $buttonStyling['tertiary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['tertiary_button']['border_colour']]) : 'transparent';
+	$tertiaryButtonBorderColHover = $tertiaryButtonBorderCol !== 'transparent' ? $tertiaryButtonBorderCol->isDark() ? "#" . $tertiaryButtonBorderCol->lighten() : $tertiaryButtonBorderCol->darken() : 'transparent';
 	?>
 
     <style>
@@ -128,9 +137,12 @@
 			--brand-color-4--light: #<?php echo $brandColorFourLight; ?>;
 			--brand-color-4--dark: #<?php echo $brandColorFourDark; ?>;
 
-			--bg-color-1: <?php echo $bgColours['background_colour_1']['colour']; ?>;
-			--bg-color-2: <?php echo $bgColours['background_colour_2']['colour']; ?>;
-			--bg-color-3: <?php echo $bgColours['background_colour_3']['colour']; ?>;
+			--bg-color-1: <?php echo $bgColOne ?>;
+			--bg-color-1--shade: #<?php echo $bgColOneShade ?>;
+			--bg-color-2: <?php echo $bgColTwo ?>;
+			--bg-color-2--shade: #<?php echo $bgColTwoShade ?>;
+			--bg-color-3: <?php echo $bgColThree ?>;
+			--bg-color-3--shade: #<?php echo $bgColThreeShade ?>;
 			
 			--bg-color-1--font-color: <?php echo $bgColours['background_colour_1']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
 			--bg-color-2--font-color: <?php echo $bgColours['background_colour_2']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
@@ -142,18 +154,21 @@
 			
 			--primary-button--bg: <?php echo $primaryButtonBg ?>;
 			--primary-button--bg--hover : <?php echo $primaryButtonBgHover; ?>;
-			--primary-button--border: <?php echo $buttonStyling['primary_button']['border_colour'] !== 'none' ?  $brandColours['brand_colour_' . $buttonStyling['primary_button']['border_colour']] : 'transparent'; ?>;
-			--primary-button--text-color: <?php echo $buttonStyling['primary_button']['text_colour'] === 'dark' ? $brandColours['brand_colour_1'] : $typography['font_colours']['bright']; ?>;
+			--primary-button--border: <?php echo $primaryButtonBorderCol; ?>;
+			--primary-button--border--hover: <?php echo $primaryButtonBorderColHover; ?>;
+			--primary-button--text-color: <?php echo $buttonStyling['primary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
 			
 			--secondary-button--bg:   <?php echo $secondaryButtonBg ?>;
 			--secondary-button--bg--hover : <?php echo $secondaryButtonBgHover; ?>;
-			--secondary-button--border: <?php echo $buttonStyling['secondary_button']['border_colour'] !== 'none' ? $brandColours['brand_colour_' . $buttonStyling['secondary_button']['border_colour']] : 'transparent'; ?>;
-			--secondary-button--text-color: <?php echo $buttonStyling['secondary_button']['text_colour'] === 'dark' ? $brandColours['brand_colour_1'] : $typography['font_colours']['bright']; ?>;
+			--secondary-button--border: <?php echo $secondaryButtonBorderCol; ?>;
+			--secondary-button--border--hover: <?php echo $secondaryButtonBorderColHover; ?>;
+			--secondary-button--text-color: <?php echo $buttonStyling['secondary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
 			
 			--tertiary-button--bg:   <?php echo $tertiaryButtonBg; ?>;
 			--tertiary-button--bg--hover : <?php echo $tertiaryButtonBgHover; ?>;
-			--tertiary-button--border: <?php echo $buttonStyling['tertiary_button']['border_colour'] !== 'none' ? $brandColours['brand_colour_' . $buttonStyling['tertiary_button']['border_colour']] : 'transparent'; ?>;
-			--tertiary-button--text-color: <?php echo $buttonStyling['tertiary_button']['text_colour'] === 'dark' ? $brandColours['brand_colour_1'] : $typography['font_colours']['bright']; ?>;
+			--tertiary-button--border: <?php echo $tertiaryButtonBorderCol; ?>;
+			--tertiary-button--border--hover: <?php echo $tertiaryButtonBorderColHover; ?>;
+			--tertiary-button--text-color: <?php echo $buttonStyling['tertiary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
 			
 			--font-family--headings: <?php echo $typography['fonts']['headings']['font'] ?>, sans-serif;
 			--font-family--body: <?php echo $typography['fonts']['body']['font'] ?>, sans-serif;
@@ -184,8 +199,12 @@
 		if ($noticeBar['show_notice_bar']) :?>
 			<header class="notice-bar bg-<?php echo $noticeBar['appearance']['background_colour']; ?>">
 				<div class="notice-bar__inner container container--xs">
-					<ion-icon name="<?php echo $noticeBar['appearance']['icon']; ?>"></ion-icon>
-					<?php echo $noticeBar['appearance']['content']; ?>
+					<ion-icon class="" name="<?php echo $noticeBar['appearance']['icon']; ?>"></ion-icon>
+					<span class="small"><?php echo $noticeBar['appearance']['content']; ?></span>
+					<button class="bg-<?php echo $noticeBar['appearance']['background_colour']; ?> close-notice-bar">
+						<span class="screen-reader-text">Close</span>
+						<ion-icon name="close-outline"></ion-icon>
+					</button>
 				</div>
 			</header>
 		<?php endif; ?>
@@ -243,14 +262,26 @@
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->
-	<header class="extended-header bg-<?php echo $header['utility_strip']['background_colour'] ?>">
-		<div class="extended-header__inner container container--np">
-			<button class="search-button strip-button"><ion-icon name="call-outline"></ion-icon><span>Search this site</span></button>
-			<?php // get_search_form(); ?>
-			<ul class="header-contact container-sup--xs">
-				<?php $headerContact = get_field('contact_details', 'option')['contact_details']; ?>
-				<li><ion-icon name="call-outline"></ion-icon> <span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
-				<li><ion-icon name="mail-outline"></ion-icon> <span class="small"><?php echo $headerContact['email_address']; ?></span></li>
-			</ul>
-		</div>
-	</header>
+	
+	<?php if ($header['mode'] === 'extended') : ?>
+		<header class="extended-header bg-<?php echo $header['utility_strip']['background_colour'] ?>">
+			<div class="extended-header__inner container container--np">
+				<!-- <button class="search-button strip-button"><ion-icon name="search-outline"></ion-icon><span>Search this site</span></button> -->
+				<?php // get_search_form(); ?>
+				<form class="test-search">
+					<span class="search-icon"><ion-icon class="search-icon__icon large" name="search-outline"></ion-icon></span>
+					<input type="text" class="small bg-<?php echo $header['utility_strip']['background_colour'] ?>" placeholder="Search this site" />
+					<button class="input-button">
+						<ion-icon class="arrow-icon large" name="arrow-forward-outline"></ion-icon>
+					</button>
+				</form>
+				<?php if ($header['show_contact_details']) : ?>
+					<ul class="header-contact container-sup">
+						<?php $headerContact = get_field('contact_details', 'option')['contact_details']; ?>
+						<li><ion-icon class="large" name="call-outline"></ion-icon> <span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
+						<li><ion-icon class="large" name="mail-outline"></ion-icon> <span class="small"><?php echo $headerContact['email_address']; ?></span></li>
+					</ul>
+				<?php endif; ?>
+			</div>
+		</header>
+	<?php endif; ?>

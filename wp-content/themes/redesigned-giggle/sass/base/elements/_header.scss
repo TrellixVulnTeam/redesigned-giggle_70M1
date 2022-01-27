@@ -3,15 +3,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         p {
             padding: 0 0 0 $indent__xs;
             margin: 0;
         }
 
-        ion-icon {
-            font-size: $font-size-rel__h2;
+        > * {
+            opacity: 1;
+            transition: all ease-in-out .05s;
         }
+    }
+
+    &.closed {
+        > * {
+            opacity: 0;
+        }
+    }
+
+    .close-notice-bar {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        right: $container-padding;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
@@ -39,9 +57,16 @@
 }
 
 .extended-header {
+    // transition: background ease-in-out .04s;
+
+    &.search-active {
+        // background: transparent !important;
+    }
+
     &__inner {
         display: flex;
         justify-content: space-between;
+        min-height: 53px;
     }
 
     .header-contact {
@@ -62,5 +87,75 @@
                 padding-left: $indent__base;
             }
         }
+    }
+}
+
+.test-search {
+    display: flex;
+    position: relative;
+    transition: all ease-in-out .2s;
+    min-width: 300px;
+
+    &:focus-within {
+        flex-grow: 1;
+
+        + ul {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            transition: opacity ease-in-out .2s, visibility ease 0 .2s;
+        }
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    input {
+        // background-color: $bg-col-2;
+        border-color: transparent !important;
+        color: white !important;
+        border-radius: 0 !important;
+        outline: none;
+        min-width: 100%;
+        transition: all ease-in-out .2s;
+        padding-left: $indent__xl !important;
+        padding-right: 40px;
+
+        &::placeholder {
+            color: white !important;
+        }
+
+        &:focus {
+            font-size: 1.125em;
+            padding-left: 2rem !important;
+
+            + button {
+                opacity: 1;
+            }
+
+            &::placeholder {
+                font-size: 1em;
+                opacity: 0.5;
+            }
+        }
+
+    }
+
+    button {
+        position: absolute;
+        right: $indent__s;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        color: white !important;
+        opacity: 0;
+        transition: all ease-in-out .2s;
     }
 }

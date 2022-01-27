@@ -1,11 +1,15 @@
+$container-padding: $indent__base;
+$container-padding--xs: $indent__xs;
+
 .container {
     max-width: 1280px;
+    width: 100%;
     margin: 0 auto;
-    padding: $indent__base;
+    padding: $container-padding;
 
     &--xs {
-        padding-bottom: $indent__xs;
-        padding-top: $indent__xs;
+        padding-bottom: $container-padding--xs;
+        padding-top: $container-padding--xs;
     }
 
     &--np {
@@ -16,11 +20,11 @@
 
 .container-sup {
     // for items within containers with no padding
-    padding-top: $indent__base;
-    padding-bottom: $indent__base;
+    padding-top: $container-padding;
+    padding-bottom: $container-padding;
 
     &--xs {
-        padding-bottom: $indent__xs;
-        padding-top: $indent__xs;
+        padding-bottom: $container-padding--xs;
+        padding-top: $container-padding--xs;
     }
 }
