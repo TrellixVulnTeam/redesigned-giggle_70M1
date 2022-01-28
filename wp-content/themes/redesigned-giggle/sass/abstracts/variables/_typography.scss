@@ -7,17 +7,21 @@ $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
 
-
+$text-width: 800px;
 $font-size-rel__base: 1rem;
 
 $font-size-rel__h1: $font-size-rel__base * 2;
-$font-size-rel__h2: $font-size-rel__base * 1.5;
+$font-size-rel__h2: $font-size-rel__base * 2.25;
 $font-size-rel__h3: $font-size-rel__base * 1.125;
 $font-size-rel__h4: $font-size-rel__base;
 $font-size-rel__h5: $font-size-rel__base * 0.875;
 
 $font-size-rel__small: $font-size-rel__h5;
 $font-size-rel__large: $font-size-rel__h3;
+$font-size-rel__xlarge: $font-size-rel__base * 4.5;
 
 $text-color--bright: white;
 $text-color--dark: black;
+
+$font-weight__regular: 400;
+$font-weight__bold: 600;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testimonial Block Template.
+ * CTA Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -35,17 +35,20 @@ $blockData = [
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> bg-<?php echo get_field('background_colour'); ?>">
-    <div class="container">
-        <h2><?= $blockData['heading'] ?></h2>
-        <?php if ($blockData['description']) : ?>
-            <p><?php echo $blockData['description']; ?></p> 
-        <?php endif; ?>
-
+    <div class="container container--xl call-to-action__inner grid">
+        <div class="col colspan-5">
             <img src="<?php echo $blockData['image']['url']; ?>" alt="" />
-
-        <?php if ($buttons = $blockData['buttons']) {
-            require get_template_directory() . '/template-parts/components/buttons.php';
-        } ?>
+        </div>
+        <div class="call-to-action__content col colspan-7">
+            <h2><?= $blockData['heading'] ?></h2>
+            <?php if ($blockData['description']) : ?>
+                <p class="large"><?php echo $blockData['description']; ?></p> 
+            <?php endif; ?>
+            <?php if ($buttons = $blockData['buttons']) {
+                require get_template_directory() . '/template-parts/components/buttons.php';
+            } ?>
+        </div>
+        
         <style type="text/css">
             #<?php echo $id; ?> {
                 /*css here */

@@ -224,7 +224,22 @@ function as_adapt_search_form( $form ) {
 
 add_filter( 'get_search_form', 'as_adapt_search_form' );
 
+add_action( 'enqueue_block_assets', 'myplugin_enqueue_if_block_is_present' ); // Can only be loaded in the footer
+
+function myplugin_enqueue_if_block_is_present(){
+
+    if ( has_block( 'acf/banner' ) ) {
+        wp_enqueue_script( 'swiperjs', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.js', array( 'jquery' ) );
+		wp_enqueue_style( 'swipercss', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.css');
+    }
+}
 function wpdocs_scripts_method() {
     wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_scripts_method' );
+
+// block editor styles
+add_action( 'enqueue_block_editor_assets', function() {
+    wp_enqueue_style( 'editor-styles', get_stylesheet_directory_uri() . "/style.css", false, '1.0', 'all' );
+    wp_enqueue_style( 'editor-styles-vars', get_stylesheet_directory_uri() . "/editor.css", false, '1.0', 'all' );
+} );

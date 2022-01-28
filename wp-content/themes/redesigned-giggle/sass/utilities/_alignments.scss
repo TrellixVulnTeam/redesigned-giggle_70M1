@@ -25,3 +25,78 @@
 
 	margin-bottom: 1.5em;
 }
+
+$columnGap: $indent__xl;
+
+.grid {
+	// display: flex;
+	display: grid;
+	grid-gap: $columnGap;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+// .col {
+// 	+ .col {
+// 		// margin-left: $columnGap;
+// 	}
+// }
+
+.colspan-1 {
+	// width: calc((100% / 12) - #{$columnGap / 2});
+	grid-column: span 1;
+}
+
+.colspan-2 {
+	// width: calc((100% / 12 * 2) - #{$columnGap / 2});
+	grid-column: span 2;
+}
+
+.colspan-2 {
+	// width: calc((100% / 12 * 3) - #{$columnGap / 2});
+	grid-column: span 3;
+}
+
+.colspan-4 {
+	// width: calc((100% / 12 * 4) - #{$columnGap / 2});
+	grid-column: span 4;
+}
+
+.colspan-5 {
+	// width: calc((100% / 12 * 5) - #{$columnGap / 2});
+	grid-column: span 5;
+}
+
+.colspan-6 {
+	// width: calc((100% / 12 * 6) - #{$columnGap / 2});
+	grid-column: span 6;
+}
+
+.colspan-7 {
+	// width: calc((100% / 12 * 7) - #{$columnGap / 2});
+	grid-column: span 7;
+}
+
+.colspan-8 {
+	// width: calc((100% / 12 * 8) - #{$columnGap / 2});
+	grid-column: span 8;
+}
+
+.colspan-9 {
+	// width: calc((100% / 12 * 9) - #{$columnGap / 2});
+	grid-column: span 9;
+}
+
+.colspan-10 {
+	// width: calc((100% / 12 * 10) - #{$columnGap / 2});
+	grid-column: span 10;
+}
+
+.colspan-11 {
+	// width: calc((100% / 12 * 11) - #{$columnGap / 2});
+	grid-column: span 11;
+}
+
+.colspan-12 {
+	// width: calc((100% / 12 * 12) - #{$columnGap / 2});
+	grid-column: span 12;
+}

@@ -40,9 +40,17 @@
         align-items: center;
     }
 
+    .actions-wrapper {
+        margin: 0;
+    }
+
     .site-branding {
         display: flex;
         align-items: center;
+
+        img {
+            max-width: 140px;
+        }
         
         img + * {
             padding-left: $indent__s;

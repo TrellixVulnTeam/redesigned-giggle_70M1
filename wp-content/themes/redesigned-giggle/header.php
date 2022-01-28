@@ -77,22 +77,25 @@
 
 	use Mexitek\PHPColors\Color;
 
-
 	$brandColorOne = new Color($brandColours['brand_colour_1']);
 	$brandColorOneLight = $brandColorOne->lighten();
 	$brandColorOneDark = $brandColorOne->darken();
+	$brandColorOneShade = $brandColorOne->isDark() ? $brandColorOneLight : $brandColorOneDark;
 
 	$brandColorTwo = new Color($brandColours['brand_colour_2']);
 	$brandColorTwoLight = $brandColorTwo->lighten();
 	$brandColorTwoDark = $brandColorTwo->darken();
+	$brandColorTwoShade = $brandColorTwo->isDark() ? $brandColorTwoLight : $brandColorTwoDark;
 
 	$brandColorThree = new Color($brandColours['brand_colour_3']);
 	$brandColorThreeLight = $brandColorThree->lighten();
 	$brandColorThreeDark = $brandColorThree->darken();
+	$brandColorThreeShade = $brandColorThree->isDark() ? $brandColorThreeLight : $brandColorThreeDark;
 
 	$brandColorFour = new Color($brandColours['brand_colour_4']);
 	$brandColorFourLight = $brandColorFour->lighten();
 	$brandColorFourDark = $brandColorFour->darken();
+	$brandColorOneShade = $brandColorOne->isDark() ? $brandColorOneLight : $brandColorOneDark;
 
 	$bgColOne = new Color($bgColours['background_colour_1']['colour']);
 	$bgColOneShade = $bgColOne->isDark() ? $bgColOne->lighten() : $bgColOne->darken();
@@ -102,21 +105,6 @@
 
 	$bgColThree = new Color($bgColours['background_colour_3']['colour']);
 	$bgColThreeShade = $bgColThree->isDark() ? $bgColThree->lighten() : $bgColThree->darken();
-
-	$primaryButtonBg = $buttonStyling['primary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['primary_button']['background_colour']]) : 'transparent';
-	$primaryButtonBgHover = $primaryButtonBg !== 'transparent' ? $primaryButtonBg->isDark() ? "#" . $primaryButtonBg->lighten() : $primaryButtonBg->darken() : 'transparent';
-	$primaryButtonBorderCol = $buttonStyling['primary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['primary_button']['border_colour']]) : 'transparent';
-	$primaryButtonBorderColHover = $primaryButtonBorderCol !== 'transparent' ? $primaryButtonBorderCol->isDark() ? "#" . $primaryButtonBorderCol->lighten() : $primaryButtonBorderCol->darken() : 'transparent';
-
-	$secondaryButtonBg = $buttonStyling['secondary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['secondary_button']['background_colour']]) : 'transparent';
-	$secondaryButtonBgHover = $secondaryButtonBg !== 'transparent' ? $secondaryButtonBg->isDark() ? "#" . $secondaryButtonBg->lighten() : $secondaryButtonBg->darken() : 'transparent';
-	$secondaryButtonBorderCol = $buttonStyling['secondary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['secondary_button']['border_colour']]) : 'transparent';
-	$secondaryButtonBorderColHover = $secondaryButtonBorderCol !== 'transparent' ? $secondaryButtonBorderCol->isDark() ? "#" . $secondaryButtonBorderCol->lighten() : $secondaryButtonBorderCol->darken() : 'transparent';
-
-	$tertiaryButtonBg = $buttonStyling['tertiary_button']['background_colour'] !== 'none' ? new Color($brandColours['brand_colour_' . $buttonStyling['tertiary_button']['background_colour']]) : 'transparent';
-	$tertiaryButtonBgHover = $tertiaryButtonBg !== 'transparent' ? $tertiaryButtonBg->isDark() ? "#" . $tertiaryButtonBg->lighten() : $tertiaryButtonBg->darken() : 'transparent';
-	$tertiaryButtonBorderCol = $buttonStyling['tertiary_button']['border_colour'] !== 'none' ?  new Color($brandColours['brand_colour_' . $buttonStyling['tertiary_button']['border_colour']]) : 'transparent';
-	$tertiaryButtonBorderColHover = $tertiaryButtonBorderCol !== 'transparent' ? $tertiaryButtonBorderCol->isDark() ? "#" . $tertiaryButtonBorderCol->lighten() : $tertiaryButtonBorderCol->darken() : 'transparent';
 	?>
 
     <style>
@@ -124,18 +112,22 @@
             --brand-color-1: <?php echo $brandColorOne; ?>;
 			--brand-color-1--light: #<?php echo $brandColorOneLight; ?>;
 			--brand-color-1--dark: #<?php echo $brandColorOneDark; ?>;
+			--brand-color-1--shade: #<?php echo $brandColorOneShade; ?>;
 
 			--brand-color-2: <?php echo $brandColorTwo; ?>;
 			--brand-color-2--light: #<?php echo $brandColorTwoLight; ?>;
 			--brand-color-2--dark: #<?php echo $brandColorTwoDark; ?>;
+			--brand-color-2--shade: #<?php echo $brandColorTwoShade; ?>;
 
 			--brand-color-3: <?php echo $brandColorThree; ?>;
 			--brand-color-3--light: #<?php echo $brandColorThreeLight; ?>;
 			--brand-color-3--dark: #<?php echo $brandColorThreeDark; ?>;
+			--brand-color-3--shade: #<?php echo $brandColorThreeShade; ?>;
 
 			--brand-color-4: <?php echo $brandColorFour; ?>;
 			--brand-color-4--light: #<?php echo $brandColorFourLight; ?>;
 			--brand-color-4--dark: #<?php echo $brandColorFourDark; ?>;
+			--brand-color-4--shade: #<?php echo $brandColorFourShade; ?>;
 
 			--bg-color-1: <?php echo $bgColOne ?>;
 			--bg-color-1--shade: #<?php echo $bgColOneShade ?>;
@@ -151,24 +143,6 @@
 			--bg-color-1--link-color: <?php echo $bgColours['background_colour_1']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
 			--bg-color-2--link-color: <?php echo $bgColours['background_colour_2']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
 			--bg-color-3--link-color: <?php echo $bgColours['background_colour_3']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
-			
-			--primary-button--bg: <?php echo $primaryButtonBg ?>;
-			--primary-button--bg--hover : <?php echo $primaryButtonBgHover; ?>;
-			--primary-button--border: <?php echo $primaryButtonBorderCol; ?>;
-			--primary-button--border--hover: <?php echo $primaryButtonBorderColHover; ?>;
-			--primary-button--text-color: <?php echo $buttonStyling['primary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
-			
-			--secondary-button--bg:   <?php echo $secondaryButtonBg ?>;
-			--secondary-button--bg--hover : <?php echo $secondaryButtonBgHover; ?>;
-			--secondary-button--border: <?php echo $secondaryButtonBorderCol; ?>;
-			--secondary-button--border--hover: <?php echo $secondaryButtonBorderColHover; ?>;
-			--secondary-button--text-color: <?php echo $buttonStyling['secondary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
-			
-			--tertiary-button--bg:   <?php echo $tertiaryButtonBg; ?>;
-			--tertiary-button--bg--hover : <?php echo $tertiaryButtonBgHover; ?>;
-			--tertiary-button--border: <?php echo $tertiaryButtonBorderCol; ?>;
-			--tertiary-button--border--hover: <?php echo $tertiaryButtonBorderColHover; ?>;
-			--tertiary-button--text-color: <?php echo $buttonStyling['tertiary_button']['text_colour'] === 'dark' ? $brandColours['dark'] : $typography['font_colours']['bright']; ?>;
 			
 			--font-family--headings: <?php echo $typography['fonts']['headings']['font'] ?>, sans-serif;
 			--font-family--body: <?php echo $typography['fonts']['body']['font'] ?>, sans-serif;
@@ -211,7 +185,7 @@
 
 	<?php $header = get_field('appearance', 'option'); ?>
 	<header id="masthead" class="site-header bg-<?php echo $header['background_colour']; ?>">
-		<div class="site-header__inner container">
+		<div class="site-header__inner container container--xs">
 			<div class="site-branding">
 				<?php
 				if (!$brandIdentity['logo']) {
@@ -276,7 +250,7 @@
 					</button>
 				</form>
 				<?php if ($header['show_contact_details']) : ?>
-					<ul class="header-contact container-sup">
+					<ul class="header-contact container-sup container-sup--xs">
 						<?php $headerContact = get_field('contact_details', 'option')['contact_details']; ?>
 						<li><ion-icon class="large" name="call-outline"></ion-icon> <span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
 						<li><ion-icon class="large" name="mail-outline"></ion-icon> <span class="small"><?php echo $headerContact['email_address']; ?></span></li>

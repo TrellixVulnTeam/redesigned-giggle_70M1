@@ -21,48 +21,145 @@ input[type="submit"] {
 	}
 }
 
+.actions-wrapper {
+	margin-top: $indent__l;
+}
+
 a, button, input[type="submit"], * {
 	&.action {
-		padding: $indent__xs $indent__s;
+		padding: $indent__xxs $indent__l;
 		display: inline-block;
 		width: auto;
 		border-radius: $border-radius__base;
 		border: $border;
 		transition: background ease-in-out .2s;
 		text-decoration: none;
+		font-weight: $font-weight__bold;
 
-		&--primary {
-			// Primary button
-			background-color: $button-primary--bg-col;
-			border-color: $button-primary--border-col;
-			color: $button-primary--text-col;
+		&--fill {
+			background-color: $brand-color-1;
+			border-color: $brand-color-1;
+			
+			&.action--light {
+				color: $text-color--bright;
+			}
+
+			&.action--dark {
+				color: $text-color--dark;
+			}
 
 			&:hover {
-				background-color: $button-primary--bg-col--hover;
-				border-color: $button-primary--border-col--hover;
+				background-color: $brand-color-1--shade;
+				border-color: $brand-color-1--shade;
+			}
+
+			&--2 {
+				background-color: $brand-color-2;
+				border-color: $brand-color-2;
+
+				&:hover {
+					background-color: $brand-color-2--shade;
+					border-color: $brand-color-2--shade;
+				}
+			}
+
+			&--3 {
+				background-color: $brand-color-3;
+				border-color: $brand-color-3;
+
+				&:hover {
+					background-color: $brand-color-3--shade;
+					border-color: $brand-color-3--shade;
+				}
+			}
+
+			&--4 {
+				background-color: $brand-color-4;
+				border-color: $brand-color-4;
+
+				&:hover {
+					background-color: $brand-color-4--shade;
+					border-color: $brand-color-4--shade;
+				}
 			}
 		}
 
-		&--secondary {
-			background-color: $button-secondary--bg-col;
-			border-color: $button-secondary--border-col;
-			color: $button-secondary--text-col;
+		&--outline {
+			background-color: transparent;
+			border-color: $brand-color-1;
+			color: $brand-color-1;
 
 			&:hover {
-				background-color: $button-secondary--bg-col--hover;
-				border-color: $button-secondary--border-col--hover;
+				border-color: $brand-color-1--shade;
+				color: $brand-color-1--shade;
+			}
+
+			&--2 {
+				border-color: $brand-color-2;
+				color: $brand-color-2;
+
+				&:hover {
+					border-color: $brand-color-2--shade;
+					color: $brand-color-2--shade;
+				}
+			}
+
+			&--3 {
+				border-color: $brand-color-3;
+				color: $brand-color-3;
+
+				&:hover {
+					border-color: $brand-color-3--shade;
+					color: $brand-color-3--shade;
+				}
+			}
+
+			&--4 {
+				border-color: $brand-color-4;
+				color: $brand-color-4;
+
+				&:hover {
+					border-color: $brand-color-4--shade;
+					color: $brand-color-4--shade;
+				}
 			}
 		}
 
-		&--tertiary {
-			background-color: $button-tertiary--bg-col;
-			border-color: $button-tertiary--border-col;
-			color: $button-tertiary--text-col;
+		&--text {
+			border-color: transparent;
+			color: $brand-color-1;
 
 			&:hover {
-				background-color: $button-tertiary--bg-col--hover;
-				border-color: $button-tertiary--border-col--hover;
+				color: $brand-color-1--shade;
 			}
+
+			&--2 {
+				color: $brand-color-2;
+
+				&:hover {
+					color: $brand-color-2--shade;
+				}
+			}
+
+			&--3 {
+				color: $brand-color-3;
+
+				&:hover {
+					color: $brand-color-3--shade;
+				}
+			}
+
+			&--4 {
+				color: $brand-color-4;
+
+				&:hover {
+					color: $brand-color-4--shade;
+				}
+			}
+		}
+
+		+ .action {
+			margin-left: $indent__base;
 		}
 	}
 }
@@ -77,9 +174,6 @@ a, button, input[type="submit"], * {
 	ion-icon {
 		font-size: $font-size-rel__large;
 	}
-
-	// border-left: $border;
-	// border-right: $border;
 
 	span {
 		padding-left: $indent__s;

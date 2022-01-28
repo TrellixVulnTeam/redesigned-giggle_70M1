@@ -1,0 +1,33 @@
+:root {
+    --brand-color-1: #000;
+
+    --brand-color-2: #000;
+
+    --brand-color-3: #000;
+
+    --brand-color-4: #000;
+
+    --bg-color-1: #fff;
+    --bg-color-2: #f8f8f8;
+    --bg-color-3: #000;
+    
+    --bg-color-1--font-color: #000;
+    --bg-color-2--font-color: #000;
+    --bg-color-3--font-color: #fff;
+    
+    --bg-color-1--link-color: #000;
+    --bg-color-2--link-color: #000;
+    --bg-color-3--link-color: #fff;
+    
+    --primary-button--bg: #000;
+    --primary-button--border: #000;
+    --primary-button--text-color: #fff;
+    
+    --secondary-button--bg:   #f8f8f8;
+    --secondary-button--border: #f8f8f8;
+    --secondary-button--text-color: #000;
+    
+    --tertiary-button--bg: #fff;
+    --tertiary-button--border: #000;
+    --tertiary-button--text-color: #000;
+}

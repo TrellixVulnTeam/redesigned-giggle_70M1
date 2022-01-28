@@ -1,0 +1,17 @@
+.banner {
+    .banner-list {
+        @include listReset;
+
+        &__item {
+            background-size: cover;
+        }
+    }
+
+    .subheading {
+        font-size: $font-size-rel__h3;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+}

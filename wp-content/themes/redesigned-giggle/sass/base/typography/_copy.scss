@@ -50,6 +50,11 @@ big, .large {
 	font-size: $font-size-rel__large;
 }
 
+.xlarge {
+	font-size: $font-size-rel__xlarge;
+	line-height: 1.1;
+}
+
 small, .small {
 	font-size: $font-size-rel__small;
 }

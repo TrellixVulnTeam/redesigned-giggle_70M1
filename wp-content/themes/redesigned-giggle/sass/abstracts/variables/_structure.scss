@@ -1,11 +1,13 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
-$indent__base: 1rem;
-$indent__xl: $indent__base * 1.5;
-$indent__l: $indent__base * 1.125;
+$indent__base: 2rem;
+$indent__xl: $indent__base * 2;
+$indent__xxl: $indent__base * 3;
+$indent__l: $indent__base * 1.5;
 $indent__s: $indent__base * 0.875;
 $indent__xs: $indent__base * 0.5;
+$indent__xxs: $indent__base * 0.25;
 
 $borderThickness: 3px;
 $border: $borderThickness solid $border-color;
