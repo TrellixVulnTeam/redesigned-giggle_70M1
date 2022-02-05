@@ -423,23 +423,18 @@ h6 {
 	margin-bottom: 1rem;
 }
 
-@media (min-width: 767px) {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin-bottom: 1rem;
-	}
-}
-
 h1 {
 	font-size: 2rem;
 }
 
 h2 {
 	font-size: 2.25rem;
+}
+
+@media (min-width: 767px) {
+	h2 {
+		margin-bottom: 2rem;
+	}
 }
 
 h3 {
@@ -1021,6 +1016,12 @@ a.action, button.action, input[type="submit"].action, *.action {
 	a.action + .action, button.action + .action, input[type="submit"].action + .action, *.action + .action {
 		margin-left: 2rem;
 	}
+}
+
+a.action--text, button.action--text, input[type="submit"].action--text, *.action--text {
+	padding: 0;
+	position: relative;
+	text-decoration: underline;
 }
 
 a.action--fill, button.action--fill, input[type="submit"].action--fill, *.action--fill {
@@ -1676,6 +1677,43 @@ ul.grid {
 	margin: 0;
 	padding: 0;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-card--card {
+	padding: 1rem;
+	border-radius: 1rem;
+	box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 767px) {
+	.post-card.post-card--emphasised {
+		display: flex;
+		flex-direction: row;
+	}
+	.post-card.post-card--emphasised .post-card__content {
+		padding-left: 1rem;
+	}
+	.post-card.post-card--emphasised .post-card__content .entry-footer {
+		margin-top: 0;
+	}
+	.post-card.post-card--emphasised .entry-meta {
+		display: block;
+	}
+	.post-card.post-card--emphasised .entry-meta > *:nth-of-type(n+2):before {
+		content: ' | ';
+	}
+}
+
+.post-card__content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-card__image {
+	position: relative;
 }
 
 .post-card__link {
@@ -1690,6 +1728,10 @@ ul.grid {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 0.5rem;
+}
+
+.post-card .entry-footer {
+	margin-top: auto;
 }
 
 .post-card .taglist {
@@ -1726,7 +1768,15 @@ ul.grid {
 	margin-top: 1rem;
 }
 
-.post-card .actions-wrapper a {
+.post-card .actions-wrapper a:not(.action--text) {
+	flex-grow: 1;
+}
+
+.highlighted-content .col {
+	display: flex;
+}
+
+.highlighted-content .col article {
 	flex-grow: 1;
 }
 

@@ -1,0 +1,115 @@
+
+.post-card {
+    @include listReset;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &--card {
+        padding: $indent__s;
+        border-radius: $border-radius__large;
+        box-shadow: $box-shadow__base;
+    }
+
+    &.post-card--emphasised {
+        @include from('small') {
+            display: flex;
+            flex-direction: row;
+
+            .post-card__content {
+                padding-left: $indent__s;
+
+                .entry-footer {
+                    margin-top: 0;
+                }
+            }
+
+            .entry-meta {
+                display: block;
+                > *:nth-of-type(n+2) {
+                    &:before {
+                        content: ' | ';
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__image {
+        position: relative;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__thumbnail {
+        margin-bottom: $indent__s;
+    }
+
+    .entry-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $indent__xs;
+    }
+
+    .entry-footer {
+        margin-top: auto;
+    }
+
+    .taglist {
+        display: flex;
+        flex-flow: row wrap;
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+        position: absolute;
+        padding: $indent__xs;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+            color: $bg-col-1-text-col;
+            padding: $indent__xxs $indent__xs;
+            display: inline-block;
+        }
+
+        & > * {
+            border-radius: $border-radius__base;
+            background-color: $bg-col-1;
+            margin-right: $indent__xs;
+            margin-bottom: $indent__xs;
+            transition: all ease-in-out .2s;
+
+            &:hover {
+                background-color: $bg-col-1--shade;
+            }
+        }
+    }
+
+    .actions-wrapper {
+        margin-top: $indent__s;
+    }
+
+    .actions-wrapper a:not(.action--text) {
+        flex-grow: 1;
+    }
+}
+
+// .bg-1 .post-card {
+//     border-color: $bg-col-1-text-col;
+// }
+
+// .bg-2 .post-card {
+//     border-color: $bg-col-2-text-col;
+// }
+
+// .bg-3 .post-card {
+//     border-color: $bg-col-3-text-col;
+// }

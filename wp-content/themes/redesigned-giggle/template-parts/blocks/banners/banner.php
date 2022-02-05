@@ -40,7 +40,7 @@ $isSlider = count($blockData['banner']) > 1 ? true : false
                     <li class="banner-list__item <?php echo $isSlider ? 'swiper-slide' : ''; ?> bg-<?php echo $banner['background_colour'] ? $banner['background_colour'] : ''; ?>" style="background-image: url('<?php echo $banner['background_image'] ? $banner['background_image']['url'] : ''; ?>');">
                     <?php 
                         // $bgStyle = get_field('background_colours', 'option')['background_colour_' . $banner['background_colour']]['font_colour'] === 'bright' ? 'bg-dark' : '' ?>
-                        <div class="container container--xl">
+                        <div class="container container--<?php echo get_field('block_spacing'); ?>">
                             <?php if ($title = $banner['main_title']) : ?><h2 class="xlarge"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
                             <?php if ($subtitle = $banner['subtitle']) : ?><h3 class="large"><?php echo $subtitle; ?></h3><?php endif; ?>
                             <?php if ($content = $banner['content']) : ?><p class="large"><?php echo $content; ?></p><?php endif; ?>

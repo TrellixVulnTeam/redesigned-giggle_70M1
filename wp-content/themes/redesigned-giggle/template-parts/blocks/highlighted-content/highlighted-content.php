@@ -35,7 +35,7 @@ $blockData = [
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> highlighted-content--<?php echo $blockData['style']; ?> bg-<?php echo get_field('background_colour'); ?>">
-    <div class="highlighted-content__inner container">
+    <div class="highlighted-content__inner container container--<?php echo get_field('block_spacing'); ?>">
         <h2><?php echo $blockData['title']; ?></h2>
 
         <?php if ($blockData['mode'] !== 'manual') :
@@ -49,8 +49,10 @@ $blockData = [
                 $postsPerRow = count($blockData['content']) < 4 ? count($blockData['content']) : 3; ?>
                 <?php foreach( $blockData['content'] as $post ): 
                     $post = $post['post']; ?>
-                    <li class="col colspan-<?php echo 12 / $postsPerRow; ?>">
-                        <?php require get_template_directory() . '/template-parts/post-card.php'; ?>
+                    <li class="col colspan-<?php echo  $blockData['style'] == 'emphasised' ? '12' : 12 / $postsPerRow; ?>">
+                        <?php 
+                        $cardStyle = $blockData['style'];
+                        require get_template_directory() . '/template-parts/post-card.php'; ?>
                     </li>
                 <?php endforeach; ?>
                 </ul>

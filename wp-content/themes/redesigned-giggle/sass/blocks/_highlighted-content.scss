@@ -1,0 +1,9 @@
+.highlighted-content {
+    .col {
+        display: flex;
+
+        article {
+            flex-grow: 1;
+        }
+    }
+}

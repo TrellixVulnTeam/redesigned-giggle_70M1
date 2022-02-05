@@ -8,10 +8,6 @@ h6 {
 	font-family: var(--font-family--headings);
 	margin-top: 0;
 	margin-bottom: $indent__s;
-
-	@include from ('small') {
-		margin-bottom: $indent__s;
-	}
 }
 
 h1 {
@@ -20,6 +16,10 @@ h1 {
 
 h2 {
 	font-size: $font-size-rel__h2;
+
+	@include from ('small') {
+		margin-bottom: $indent__base;
+	}
 }
 
 h3 {

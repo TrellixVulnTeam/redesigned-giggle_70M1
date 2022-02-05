@@ -55,6 +55,12 @@ a, button, input[type="submit"], * {
 			}
 		}
 
+		&--text {
+			padding: 0;
+			position: relative;
+			text-decoration: underline;
+		}
+
 		&--fill {
 			background-color: $brand-color-1;
 			border-color: $brand-color-1;

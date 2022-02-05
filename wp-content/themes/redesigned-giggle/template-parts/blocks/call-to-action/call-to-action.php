@@ -35,7 +35,7 @@ $blockData = [
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> bg-<?php echo get_field('background_colour'); ?>">
-    <div class="container container--xl call-to-action__inner grid">
+    <div class="container container--<?php echo get_field('block_spacing'); ?> call-to-action__inner grid">
         <div class="col colspan-5">
             <img src="<?php echo $blockData['image']['url']; ?>" alt="" />
         </div>
