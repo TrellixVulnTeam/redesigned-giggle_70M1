@@ -72,7 +72,7 @@
 				// 
 			}
 		endforeach; 
-		sort($varaintListHeadings); ?>
+		sort($varaintListBody); ?>
 
 	<?php 
 	require_once get_template_directory() . '/vendor/Mexitek/PHPColors/src/Mexitek/PHPColors/Color.php';
