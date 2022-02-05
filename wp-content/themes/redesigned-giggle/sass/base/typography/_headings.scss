@@ -7,7 +7,11 @@ h6 {
 	clear: both;
 	font-family: var(--font-family--headings);
 	margin-top: 0;
-	margin-bottom: $indent__base;;
+	margin-bottom: $indent__s;
+
+	@include from ('small') {
+		margin-bottom: $indent__s;
+	}
 }
 
 h1 {

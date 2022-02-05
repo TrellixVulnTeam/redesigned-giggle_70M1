@@ -30,25 +30,27 @@
 
 		$brandIdentity = get_field('identity', 'option');
 
-		foreach ($typography['fonts']['headings']['variants'] as $variant) : ?>
-			<?php // Sort font wieghts and remove gubbins 
-			if (1 === preg_match('~[0-9]~', $variant)) {
-				if(strpos($variant, 'italic') !== false){
-					$variant = str_replace('italic', '', $variant);
-					$variant = '1,' . $variant;
+		if ($typography['fonts']['headings']['variants']) : 
+			foreach ($typography['fonts']['headings']['variants'] as $variant) : ?>
+				<?php // Sort font wieghts and remove gubbins 
+				if (1 === preg_match('~[0-9]~', $variant)) {
+					if(strpos($variant, 'italic') !== false){
+						$variant = str_replace('italic', '', $variant);
+						$variant = '1,' . $variant;
+					} else {
+						$variant = '0,' . $variant;
+					}
+					array_push($varaintListHeadings, $variant);
 				} else {
-					$variant = '0,' . $variant;
+					if ($variant === 'regular') {
+						array_push($varaintListHeadings, '0,400');
+					} elseif ($variant === 'italic') {
+						array_push($varaintListHeadings, '1,400');
+					}
+					// 
 				}
-				array_push($varaintListHeadings, $variant);
-			} else {
-				if ($variant === 'regular') {
-					array_push($varaintListHeadings, '0,400');
-				} elseif ($variant === 'italic') {
-					array_push($varaintListHeadings, '1,400');
-				}
-				// 
-			}
-		endforeach; 
+			endforeach; 
+		endif;
 		sort($varaintListHeadings);
 
 		foreach ($typography['fonts']['body']['variants'] as $variant) : ?>
@@ -95,16 +97,23 @@
 	$brandColorFour = new Color($brandColours['brand_colour_4']);
 	$brandColorFourLight = $brandColorFour->lighten();
 	$brandColorFourDark = $brandColorFour->darken();
-	$brandColorOneShade = $brandColorOne->isDark() ? $brandColorOneLight : $brandColorOneDark;
+	$brandColorFourShade = $brandColorFour->isDark() ? $brandColorFourLight : $brandColorFourDark;
+
+	$fontColBright = "#fff";
+	$fontColDark = "#000";
 
 	$bgColOne = new Color($bgColours['background_colour_1']['colour']);
 	$bgColOneShade = $bgColOne->isDark() ? $bgColOne->lighten() : $bgColOne->darken();
+	$bgColOneTextCol = $bgColOne->isDark() ? $fontColBright : $fontColDark;
 
 	$bgColTwo = new Color($bgColours['background_colour_2']['colour']);
 	$bgColTwoShade = $bgColTwo->isDark() ? $bgColTwo->lighten() : $bgColTwo->darken();
+	$bgColTwoTextCol = $bgColTwo->isDark() ? $fontColBright : $fontColDark;
+	// echo $bgColTwo . $bgColTwoTextCol;
 
 	$bgColThree = new Color($bgColours['background_colour_3']['colour']);
 	$bgColThreeShade = $bgColThree->isDark() ? $bgColThree->lighten() : $bgColThree->darken();
+	$bgColThreeTextCol = $bgColThree->isDark() ? $fontColBright : $fontColDark;
 	?>
 
     <style>
@@ -129,6 +138,9 @@
 			--brand-color-4--dark: #<?php echo $brandColorFourDark; ?>;
 			--brand-color-4--shade: #<?php echo $brandColorFourShade; ?>;
 
+			--font-color--bright: <?php echo $typography['font_colours']['bright'] ?>;
+			--font-color--dark: <?php echo $typography['font_colours']['dark'] ?>;
+
 			--bg-color-1: <?php echo $bgColOne ?>;
 			--bg-color-1--shade: #<?php echo $bgColOneShade ?>;
 			--bg-color-2: <?php echo $bgColTwo ?>;
@@ -136,9 +148,9 @@
 			--bg-color-3: <?php echo $bgColThree ?>;
 			--bg-color-3--shade: #<?php echo $bgColThreeShade ?>;
 			
-			--bg-color-1--font-color: <?php echo $bgColours['background_colour_1']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
-			--bg-color-2--font-color: <?php echo $bgColours['background_colour_2']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
-			--bg-color-3--font-color: <?php echo $bgColours['background_colour_3']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
+			--bg-color-1--font-color: <?php echo $bgColOneTextCol ?>;
+			--bg-color-2--font-color: <?php echo $bgColTwoTextCol ?>;
+			--bg-color-3--font-color: <?php echo $bgColThreeTextCol ?>;
 			
 			--bg-color-1--link-color: <?php echo $bgColours['background_colour_1']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
 			--bg-color-2--link-color: <?php echo $bgColours['background_colour_2']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
@@ -191,8 +203,8 @@
 				if (!$brandIdentity['logo']) {
 					the_custom_logo();
 				} else {
-					echo '<img 
-						src="' . $brandIdentity['logo']['url'] . '" alt="' . ($brandIdentity['site_title'] ? $brandIdentity['site_title'] : get_bloginfo( 'name' )) . '">';
+					echo '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home"><img 
+						src="' . $brandIdentity['logo']['url'] . '" alt="' . ($brandIdentity['site_title'] ? $brandIdentity['site_title'] : get_bloginfo( 'name' )) . '"></a>';
 				}
 
 				if ($header['show_title_beside_logo'] || !$brandIdentity['logo']) : 
@@ -241,16 +253,10 @@
 		<header class="extended-header bg-<?php echo $header['utility_strip']['background_colour'] ?>">
 			<div class="extended-header__inner container container--np">
 				<!-- <button class="search-button strip-button"><ion-icon name="search-outline"></ion-icon><span>Search this site</span></button> -->
-				<?php // get_search_form(); ?>
-				<form class="test-search">
-					<span class="search-icon"><ion-icon class="search-icon__icon large" name="search-outline"></ion-icon></span>
-					<input type="text" class="small bg-<?php echo $header['utility_strip']['background_colour'] ?>" placeholder="Search this site" />
-					<button class="input-button">
-						<ion-icon class="arrow-icon large" name="arrow-forward-outline"></ion-icon>
-					</button>
-				</form>
+				<?php get_search_form(); ?>
+				
 				<?php if ($header['show_contact_details']) : ?>
-					<ul class="header-contact container-sup container-sup--xs">
+					<ul class="small-up header-contact container-sup container-sup--xs">
 						<?php $headerContact = get_field('contact_details', 'option')['contact_details']; ?>
 						<li><ion-icon class="large" name="call-outline"></ion-icon> <span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
 						<li><ion-icon class="large" name="mail-outline"></ion-icon> <span class="small"><?php echo $headerContact['email_address']; ?></span></li>

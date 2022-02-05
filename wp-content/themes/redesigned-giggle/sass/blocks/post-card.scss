@@ -1,0 +1,56 @@
+.post-card {
+    @include listReset;
+    position: relative;
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__thumbnail {
+        margin-bottom: $indent__s;
+    }
+
+    .entry-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $indent__xs;
+    }
+
+    .taglist {
+        display: flex;
+        flex-flow: row wrap;
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+        position: absolute;
+        padding: $indent__xs;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+            color: $bg-col-1-text-col;
+            padding: $indent__xxs $indent__xs;
+            display: inline-block;
+        }
+
+        & > * {
+            border-radius: $border-radius__base;
+            background-color: $bg-col-1;
+            margin-right: $indent__xs;
+            margin-bottom: $indent__xs;
+            transition: all ease-in-out .2s;
+
+            &:hover {
+                background-color: $bg-col-1--shade;
+            }
+        }
+    }
+
+    .actions-wrapper {
+        margin-top: $indent__s;
+    }
+
+    .actions-wrapper a {
+        flex-grow: 1;
+    }
+}

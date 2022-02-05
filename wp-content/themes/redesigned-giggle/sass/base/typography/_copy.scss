@@ -50,9 +50,17 @@ big, .large {
 	font-size: $font-size-rel__large;
 }
 
+h3.large {
+	@include from('medium') {
+		font-size: $font-size-rel__h2;
+	}
+}
+
 .xlarge {
-	font-size: $font-size-rel__xlarge;
-	line-height: 1.1;
+	@include from('medium') {
+		font-size: $font-size-rel__xlarge;
+		line-height: 1.1;
+	}
 }
 
 small, .small {

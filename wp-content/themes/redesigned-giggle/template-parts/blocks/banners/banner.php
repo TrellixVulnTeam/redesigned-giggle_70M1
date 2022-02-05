@@ -39,10 +39,10 @@ $isSlider = count($blockData['banner']) > 1 ? true : false
                 <?php foreach( $blockData['banner'] as $banner ) : ?>
                     <li class="banner-list__item <?php echo $isSlider ? 'swiper-slide' : ''; ?> bg-<?php echo $banner['background_colour'] ? $banner['background_colour'] : ''; ?>" style="background-image: url('<?php echo $banner['background_image'] ? $banner['background_image']['url'] : ''; ?>');">
                     <?php 
-                        $bgStyle = get_field('background_colours', 'option')['background_colour_' . $banner['background_colour']]['font_colour'] === 'bright' ? 'bg-dark' : '' ?>
-                        <div class="container container--xl bg-<?php echo $bgStyle; ?>">
+                        // $bgStyle = get_field('background_colours', 'option')['background_colour_' . $banner['background_colour']]['font_colour'] === 'bright' ? 'bg-dark' : '' ?>
+                        <div class="container container--xl">
                             <?php if ($title = $banner['main_title']) : ?><h2 class="xlarge"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
-                            <?php if ($subtitle = $banner['subtitle']) : ?><h3><?php echo $subtitle; ?></h3><?php endif; ?>
+                            <?php if ($subtitle = $banner['subtitle']) : ?><h3 class="large"><?php echo $subtitle; ?></h3><?php endif; ?>
                             <?php if ($content = $banner['content']) : ?><p class="large"><?php echo $content; ?></p><?php endif; ?>
                             <?php if ($buttons = $banner['buttons']) {
                                 require get_template_directory() . '/template-parts/components/buttons.php';

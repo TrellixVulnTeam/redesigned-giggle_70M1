@@ -20,12 +20,7 @@ if( $buttons ) : ?>
         $buttonColourObj = new Color($buttonBrandCol);
         $buttonTextColour = $buttonColourObj->isDark() ? 'light' : 'dark';
         
-        // $buttonColourNew = new Color($brandColours['brand_colour_' . $buttonColour]);
-        // echo $buttonColourNew;
-        // var_dump( $brandColours );
-        // $buttonColour = new Color(get_field('brand_colours', 'option')['brand_colour_' . $buttonColour]);
 		?>
-
 		<a href="<?= $url ?>" class="action action--<?php echo $buttonTextColour; ?> action--<?= $buttonStyle; ?>--<?php echo $buttonColour; ?> action--<?= $buttonStyle ?>"><?= $linkText ?></a>
 
 <?php // End loop.

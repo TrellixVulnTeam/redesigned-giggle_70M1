@@ -23,11 +23,17 @@ input[type="submit"] {
 
 .actions-wrapper {
 	margin-top: $indent__l;
+	display: flex;
+	flex-direction: column;
+
+	@include from('small') {
+		flex-direction: row;
+	}
 }
 
 a, button, input[type="submit"], * {
 	&.action {
-		padding: $indent__xxs $indent__l;
+		padding: $indent__xxs $indent__base;
 		display: inline-block;
 		width: auto;
 		border-radius: $border-radius__base;
@@ -35,6 +41,19 @@ a, button, input[type="submit"], * {
 		transition: background ease-in-out .2s;
 		text-decoration: none;
 		font-weight: $font-weight__bold;
+		text-align: center;
+
+		@include to('small') {
+			+ .action {
+				margin-top: $indent__s;
+			}
+		}
+
+		@include from('small') {
+			+ .action {
+				margin-left: $indent__base;
+			}
+		}
 
 		&--fill {
 			background-color: $brand-color-1;
@@ -82,6 +101,16 @@ a, button, input[type="submit"], * {
 					border-color: $brand-color-4--shade;
 				}
 			}
+
+			&--dark {
+				background-color: $text-color--dark;
+				border-color: $text-color--dark;
+			}
+
+			&--bright {
+				background-color: $text-color--bright;
+				border-color: $text-color--bright;
+			}
 		}
 
 		&--outline {
@@ -123,6 +152,16 @@ a, button, input[type="submit"], * {
 					color: $brand-color-4--shade;
 				}
 			}
+
+			&--dark {
+				color: $text-color--dark;
+				border-color: $text-color--dark;
+			}
+
+			&--bright {
+				color: $text-color--bright;
+				border-color: $text-color--bright;
+			}
 		}
 
 		&--text {
@@ -156,10 +195,6 @@ a, button, input[type="submit"], * {
 					color: $brand-color-4--shade;
 				}
 			}
-		}
-
-		+ .action {
-			margin-left: $indent__base;
 		}
 	}
 }

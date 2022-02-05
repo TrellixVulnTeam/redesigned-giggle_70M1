@@ -1,12 +1,24 @@
 $container-padding: $indent__xl;
-$container-padding--xs: $indent__xs;
+$container-padding--xs: $indent__s;
 $container-padding--xl: $indent__xxl;
 
 .container {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding: $indent__base $container-padding;
+    padding: $indent__s $container-padding--xs;
+
+    + .container {
+        margin-top: 0;
+    }
+
+    @include from ('small') {
+        padding: $indent__base $indent__s;
+    }
+
+    @include from ('medium') {
+        padding: $indent__base $container-padding;
+    }
 
     p {
         max-width: $text-width;
@@ -18,8 +30,13 @@ $container-padding--xl: $indent__xxl;
     }
 
     &--xl {
-        padding-bottom: $container-padding--xl;
-        padding-top: $container-padding--xl;
+        padding-bottom: $indent__base;
+        padding-top: $indent__base;
+
+        @include from ('small') {
+            padding-bottom: $container-padding--xl;
+            padding-top: $container-padding--xl;
+        }
     }
 
     &--np {

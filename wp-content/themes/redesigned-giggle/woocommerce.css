@@ -3,6 +3,24 @@ Theme Name: Redesigned-Giggle
 
 WooCommerce styles override
 */
+@media (min-width: 992px) {
+	.medium-down {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.small-up {
+		display: none !important;
+	}
+}
+
+@media (max-width: 992px) {
+	.medium-up {
+		display: none !important;
+	}
+}
+
 /**
  * Shop tables
  */

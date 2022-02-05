@@ -203,6 +203,11 @@ require get_template_directory() . '/inc/blocks.php';
  */
 require get_template_directory() . '/inc/block-categories.php';
 
+/**
+ * Load custom post types.
+ */
+require get_template_directory() . '/inc/post-types.php';
+
 //Remove Gutenberg Block Library CSS from loading on the frontend
 function smartwp_remove_wp_block_library_css(){
     wp_dequeue_style( 'wp-block-library' );
@@ -243,3 +248,24 @@ add_action( 'enqueue_block_editor_assets', function() {
     wp_enqueue_style( 'editor-styles', get_stylesheet_directory_uri() . "/style.css", false, '1.0', 'all' );
     wp_enqueue_style( 'editor-styles-vars', get_stylesheet_directory_uri() . "/editor.css", false, '1.0', 'all' );
 } );
+
+/**
+ * Handle image sizes.
+ */
+require get_template_directory() . '/inc/image-sizes.php';
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function redesigned_giggle_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'redesigned_giggle_custom_excerpt_length', 999 );
+
+function redesigned_giggle_new_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'redesigned_giggle_new_excerpt_more');

@@ -1,5 +1,5 @@
-<?php add_action('acf/init', 'my_acf_init_block_types_banner');
-function my_acf_init_block_types_banner() {
+<?php add_action('acf/init', 'my_acf_init_block_types_cta');
+function my_acf_init_block_types_cta() {
 
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {

@@ -20,8 +20,8 @@ $font-size-rel__small: $font-size-rel__h5;
 $font-size-rel__large: $font-size-rel__h3;
 $font-size-rel__xlarge: $font-size-rel__base * 4.5;
 
-$text-color--bright: white;
-$text-color--dark: black;
+$text-color--bright: var(--font-color--bright);
+$text-color--dark: var(--font-color--dark);
 
 $font-weight__regular: 400;
 $font-weight__bold: 600;

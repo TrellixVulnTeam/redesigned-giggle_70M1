@@ -19,6 +19,7 @@ function redesigned_giggle_allowed_block_types( $allowed_blocks ) {
 		'core/html',
 		'core/preformatted',
 		'acf/call-to-action',
+		'acf/highlighted-content',
 		'acf/banner'
 	);
  

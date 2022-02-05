@@ -6,7 +6,7 @@
         position: relative;
 
         p {
-            padding: 0 0 0 $indent__xs;
+            padding: 0 0 0 $indent__s;
             margin: 0;
         }
 
@@ -48,6 +48,11 @@
         display: flex;
         align-items: center;
 
+        a {
+            display: flex;
+            align-items: center;
+        }
+
         img {
             max-width: 140px;
         }
@@ -88,7 +93,7 @@
             align-items: center;
             
             span {
-                padding-left: $indent__xs;
+                padding-left: $indent__s;
             }
 
             &:nth-of-type(n+1) {
@@ -98,7 +103,7 @@
     }
 }
 
-.test-search {
+.site-search {
     display: flex;
     position: relative;
     transition: all ease-in-out .2s;
@@ -133,11 +138,14 @@
         outline: none;
         min-width: 100%;
         transition: all ease-in-out .2s;
-        padding-left: $indent__xl !important;
+        padding-left: $indent__base !important;
         padding-right: 40px;
 
-        &::placeholder {
-            color: white !important;
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover, 
+        &:-webkit-autofill:focus, 
+        &:-webkit-autofill:active {
+            background: transparent !important;
         }
 
         &:focus {
@@ -162,8 +170,36 @@
         top: 50%;
         bottom: auto;
         transform: translateY(-50%);
-        color: white !important;
         opacity: 0;
         transition: all ease-in-out .2s;
+    }
+}
+
+.bg-1 {
+    .site-search {
+        input, input::placeholder, button {
+            color: $bg-col-1-text-col !important;
+            -webkit-text-fill-color: $bg-col-1-text-col !important;
+        }
+    }
+}
+
+
+.bg-2 {
+    .site-search {
+        input, input::placeholder, button {
+            color: $bg-col-2-text-col !important;
+            -webkit-text-fill-color: $bg-col-2-text-col !important;
+        }
+    }
+}
+
+
+.bg-3 {
+    .site-search {
+        input, input::placeholder, button {
+            color: $bg-col-3-text-col !important;
+            -webkit-text-fill-color: $bg-col-3-text-col !important;
+        }
     }
 }
