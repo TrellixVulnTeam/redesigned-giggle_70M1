@@ -541,6 +541,24 @@ body {
 	max-width: 800px !important;
 }
 
+.entry-content > h1 + section,
+.entry-content > h2 + section,
+.entry-content > h3 + section,
+.entry-content > h4 + section,
+.entry-content > h5 + section,
+.entry-content > p + section {
+	margin-top: 2rem;
+}
+
+.entry-content section + h1,
+.entry-content section + h2,
+.entry-content section + h3,
+.entry-content section + h4,
+.entry-content section + h5,
+.entry-content section + p {
+	margin-top: 2rem;
+}
+
 .container, .entry-content > h1,
 .entry-content > h2,
 .entry-content > h3,

@@ -10,5 +10,20 @@
         @extend .container;
         @extend .container--xs;
         max-width: $text-width !important;
+
+        + section {
+            margin-top: $indent__base;
+        }
+    }
+
+    section {
+        + h1,
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + p {
+            margin-top: $indent__base;
+        }
     }
 }
