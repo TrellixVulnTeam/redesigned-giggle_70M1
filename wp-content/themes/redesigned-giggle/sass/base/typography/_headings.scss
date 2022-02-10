@@ -16,9 +16,15 @@ h1 {
 
 h2 {
 	font-size: $font-size-rel__h2;
+	+ .grid {
+		margin-top: $indent__base; //override using margin collapse
+	}
 
 	@include from ('small') {
-		margin-bottom: $indent__base;
+
+		+ .grid {
+			margin-top: $indent__l; //override using margin collapse
+		}
 	}
 }
 

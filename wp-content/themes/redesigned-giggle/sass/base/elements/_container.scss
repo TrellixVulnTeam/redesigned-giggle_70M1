@@ -20,7 +20,7 @@ $container-padding--xl: $indent__xxl;
         padding: $indent__base $container-padding;
     }
 
-    p {
+    p, blockquote, cite {
         max-width: $text-width;
     }
 

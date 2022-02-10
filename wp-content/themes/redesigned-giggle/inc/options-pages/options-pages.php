@@ -25,5 +25,11 @@
 		'menu_title'	=> 'Contact',
 		'parent_slug'	=> 'theme-general-settings',
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Integration Settings',
+		'menu_title'	=> 'Integrations',
+		'parent_slug'	=> 'theme-general-settings',
+	));
 	
 }

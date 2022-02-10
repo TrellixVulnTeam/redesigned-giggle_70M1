@@ -9,6 +9,7 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
+ if (isset($block)) :
 // Create id attribute allowing for custom "anchor" value.
 $id = 'banner-' . $block['id'];
 if( !empty($block['anchor']) ) {
@@ -29,22 +30,27 @@ $blockData = [
     'banner' => get_field('banner')
 ];
 
-$isSlider = count($blockData['banner']) > 1 ? true : false
+else:
+    $id = 'header-banner';
+    $className = 'banner';
+endif;
 
+
+$isSlider = count($blockData['banner']) > 1 ? true : false;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> bg-<?php echo get_field('background_colour'); ?>">
     <div class="banner__inner <?php echo $isSlider ? 'swiper swiper-' . $block['id'] : ''; ?>">
-        <?php if( $blockData['banner'] ) : ?>
+        <?php if( isset($blockData['banner']) ) : ?>
             <ul class="banner-list <?php echo $isSlider ? 'swiper-wrapper' : ''; ?>">
                 <?php foreach( $blockData['banner'] as $banner ) : ?>
-                    <li class="banner-list__item <?php echo $isSlider ? 'swiper-slide' : ''; ?> bg-<?php echo $banner['background_colour'] ? $banner['background_colour'] : ''; ?>" style="background-image: url('<?php echo $banner['background_image'] ? $banner['background_image']['url'] : ''; ?>');">
+                    <li class="banner-list__item <?php echo $banner['background']['use_overlay'] ? 'show-overlay' : ''; ?> <?php echo $isSlider ? 'swiper-slide' : ''; ?> bg-<?php echo $banner['background']['background_colour'] ? $banner['background']['background_colour'] : ''; ?>" style="background-image: url('<?php echo $banner['background']['background_image'] ? $banner['background']['background_image']['url'] : ''; ?>');">
                     <?php 
                         // $bgStyle = get_field('background_colours', 'option')['background_colour_' . $banner['background_colour']]['font_colour'] === 'bright' ? 'bg-dark' : '' ?>
-                        <div class="container container--<?php echo get_field('block_spacing'); ?>">
-                            <?php if ($title = $banner['main_title']) : ?><h2 class="xlarge"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
-                            <?php if ($subtitle = $banner['subtitle']) : ?><h3 class="large"><?php echo $subtitle; ?></h3><?php endif; ?>
-                            <?php if ($content = $banner['content']) : ?><p class="large"><?php echo $content; ?></p><?php endif; ?>
-                            <?php if ($buttons = $banner['buttons']) {
+                        <div class="container container--<?php echo get_field('block_spacing') ? get_field('block_spacing') : 'xl' ; ?>">
+                            <?php if (isset($banner['main_title']) && $title = $banner['main_title']) : ?><h2 class="xlarge"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
+                            <?php if (isset($banner['subtitle']) && $subtitle = $banner['subtitle']) : ?><h3 class="large"><?php echo $subtitle; ?></h3><?php endif; ?>
+                            <?php if (isset($banner['content']) && $content = $banner['content']) : ?><p class="large"><?php echo $content; ?></p><?php endif; ?>
+                            <?php if (isset($banner['buttons']) && $buttons = $banner['buttons']) {
                                 require get_template_directory() . '/template-parts/components/buttons.php';
                             } ?>
                         </div>

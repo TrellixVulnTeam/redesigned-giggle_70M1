@@ -51,7 +51,7 @@ a, button, input[type="submit"], * {
 
 		@include from('small') {
 			+ .action {
-				margin-left: $indent__base;
+				margin-left: $indent__s;
 			}
 		}
 

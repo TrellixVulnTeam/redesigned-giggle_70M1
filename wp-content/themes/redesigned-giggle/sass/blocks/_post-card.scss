@@ -2,22 +2,35 @@
 .post-card {
     @include listReset;
     position: relative;
-    display: flex;
-    flex-direction: column;
+
+    &:not(.grid) {
+        display: flex;
+        flex-direction: column;
+    }
 
     &--card {
-        padding: $indent__s;
         border-radius: $border-radius__large;
         box-shadow: $box-shadow__base;
+
+        .post-card__image img {
+            border-top-left-radius: $border-radius__large;
+            border-top-right-radius: $border-radius__large;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .post-card__content {
+            padding: 0 $indent__s $indent__s $indent__s;
+        }
     }
 
     &.post-card--emphasised {
         @include from('small') {
-            display: flex;
-            flex-direction: row;
+            // display: flex;
+            // flex-direction: row;
 
             .post-card__content {
-                padding-left: $indent__s;
+                // padding-left: $indent__s;
 
                 .entry-footer {
                     margin-top: 0;
@@ -70,10 +83,10 @@
         padding-left: 0;
         margin-left: 0;
         position: absolute;
-        padding: $indent__xs;
+        padding: $indent__s;
         width: 100%;
 
-        a {
+        a, a:visited, .excess-tags {
             text-decoration: none;
             color: $bg-col-1-text-col;
             padding: $indent__xxs $indent__xs;

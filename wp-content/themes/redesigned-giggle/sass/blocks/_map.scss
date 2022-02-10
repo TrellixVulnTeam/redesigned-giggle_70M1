@@ -1,0 +1,18 @@
+.map {
+    &__contact {
+        display: flex;
+        align-items: center;
+
+        ion-icon {
+            padding-right: $indent__xs;
+        }
+    }
+
+    &__location {
+        display: flex;
+
+        ion-icon {
+            padding-right: $indent__xs;
+        }
+    }
+}

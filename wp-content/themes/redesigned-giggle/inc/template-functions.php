@@ -35,5 +35,3 @@ function redesigned_giggle_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'redesigned_giggle_pingback_header' );
-
-// require get_template_directory() . '/inc/theme-functions/Color.php';

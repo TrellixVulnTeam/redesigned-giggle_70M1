@@ -4,6 +4,44 @@
 
         &__item {
             background-size: cover;
+            position: relative;
+
+            &.show-overlay {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    opacity: 0.6;
+                }
+            }
+
+            .container {
+                position: relative;
+            }
+
+            &.bg-1 {
+                &:before {
+                    background-color: $bg-col-1;
+                }
+
+            }
+
+            &.bg-2 {
+                &:before {
+                    background-color: $bg-col-2;
+                }
+
+            }
+
+            &.bg-3 {
+                &:before {
+                    background-color: $bg-col-3;
+                }
+
+            }
         }
     }
 
@@ -14,4 +52,8 @@
     .swiper-slide {
         height: auto;
     }
+}
+
+.swiper-wrapper {
+    height: auto;
 }

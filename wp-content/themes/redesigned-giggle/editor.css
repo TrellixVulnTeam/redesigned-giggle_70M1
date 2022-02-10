@@ -1,35 +1,54 @@
 :root {
-    --brand-color-1: #000;
+    --brand-color-1: #593ab4;
+    --brand-color-1--light: #7558c9;
+    --brand-color-1--dark: #462e8d;
+    --brand-color-1--shade: #7558c9;
 
-    --brand-color-2: #000;
+    --brand-color-2: #e96343;
+    --brand-color-2--light: #ee8971;
+    --brand-color-2--dark: #df401a;
+    --brand-color-2--shade: #df401a;
 
-    --brand-color-3: #000;
+    --brand-color-3: #f5f9f9;
+    --brand-color-3--light: #ffffff;
+    --brand-color-3--dark: #d5e6e6;
+    --brand-color-3--shade: #d5e6e6;
 
-    --brand-color-4: #000;
+    --brand-color-4: #293241;
+    --brand-color-4--light: #3d4a60;
+    --brand-color-4--dark: #151a22;
+    --brand-color-4--shade: #3d4a60;
 
-    --bg-color-1: #fff;
-    --bg-color-2: #f8f8f8;
-    --bg-color-3: #000;
+    --font-color--bright: #f5f9f9;
+    --font-color--dark: #293241;
+
+    --bg-color-1: #f5f9f9;
+    --bg-color-1--shade: #d5e6e6;
+    --bg-color-2: #293241;
+    --bg-color-2--shade: #3d4a60;
+    --bg-color-3: #345dc2;
+    --bg-color-3--shade: #577bd2;
     
     --bg-color-1--font-color: #000;
-    --bg-color-2--font-color: #000;
+    --bg-color-2--font-color: #fff;
     --bg-color-3--font-color: #fff;
     
     --bg-color-1--link-color: #000;
-    --bg-color-2--link-color: #000;
+    --bg-color-2--link-color: #fff;
     --bg-color-3--link-color: #fff;
     
-    --primary-button--bg: #000;
-    --primary-button--border: #000;
-    --primary-button--text-color: #fff;
-    
-    --secondary-button--bg:   #f8f8f8;
-    --secondary-button--border: #f8f8f8;
-    --secondary-button--text-color: #000;
-    
-    --tertiary-button--bg: #fff;
-    --tertiary-button--border: #000;
-    --tertiary-button--text-color: #000;
-
+    --font-family--headings: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     --font-family--body: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+body {
+    background-color: var(--bg-color-1);
+}
+
+.wp-block {
+    max-width: 1280px;
+}
+
+.wp-block p {
+    max-width: 800px;
 }

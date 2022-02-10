@@ -20,7 +20,11 @@ function redesigned_giggle_allowed_block_types( $allowed_blocks ) {
 		'core/preformatted',
 		'acf/call-to-action',
 		'acf/highlighted-content',
-		'acf/banner'
+		'acf/logos',
+		'acf/quote-testimonial',
+		'acf/banner',
+		'acf/trustpilot',
+		'acf/map'
 	);
  
 }

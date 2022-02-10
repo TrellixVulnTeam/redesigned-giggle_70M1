@@ -13,6 +13,20 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+	<?php
+	if( !function_exists('array_key_last') ) {
+		function array_key_last(array $array) {
+			if( !empty($array) ) return key(array_slice($array, -1, 1, true));
+		}
+	}
+
+	// Bonus
+	if (!function_exists('array_key_first')) {
+		function array_key_first(array $arr) {
+			foreach($arr as $key => $unused) return $key;
+		}
+	}
+	?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -75,10 +89,11 @@
 		sort($varaintListBody); ?>
 
 	<?php 
-	require_once get_template_directory() . '/vendor/Mexitek/PHPColors/src/Mexitek/PHPColors/Color.php';
+	
+	// require_once get_template_directory() . '/vendor/Mexitek/PHPColors/src/Mexitek/PHPColors/Color.php';
 
 	use Mexitek\PHPColors\Color;
-
+	
 	$brandColorOne = new Color($brandColours['brand_colour_1']);
 	$brandColorOneLight = $brandColorOne->lighten();
 	$brandColorOneDark = $brandColorOne->darken();
@@ -152,9 +167,9 @@
 			--bg-color-2--font-color: <?php echo $bgColTwoTextCol ?>;
 			--bg-color-3--font-color: <?php echo $bgColThreeTextCol ?>;
 			
-			--bg-color-1--link-color: <?php echo $bgColours['background_colour_1']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
-			--bg-color-2--link-color: <?php echo $bgColours['background_colour_2']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
-			--bg-color-3--link-color: <?php echo $bgColours['background_colour_3']['font_colour'] === 'dark' ? $typography['font_colours']['dark'] : $typography['font_colours']['bright']; ?>;
+			--bg-color-1--link-color: <?php echo $bgColOneTextCol ?>;
+			--bg-color-2--link-color: <?php echo $bgColTwoTextCol ?>;
+			--bg-color-3--link-color: <?php echo $bgColThreeTextCol ?>;
 			
 			--font-family--headings: <?php echo $typography['fonts']['headings']['font'] ?>, sans-serif;
 			--font-family--body: <?php echo $typography['fonts']['body']['font'] ?>, sans-serif;
@@ -172,6 +187,10 @@
 	
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
+	<!-- TrustBox script -->
+	<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+	<!-- End TrustBox script -->
 </head>
 
 <body <?php body_class(); ?>>

@@ -1,6 +1,6 @@
 <?php
 
-require_once get_template_directory() . '/vendor/Mexitek/PHPColors/src/Mexitek/PHPColors/Color.php';
+// require_once get_template_directory() . '/vendor/Mexitek/PHPColors/src/Mexitek/PHPColors/Color.php';
 
 use Mexitek\PHPColors\Color;
 

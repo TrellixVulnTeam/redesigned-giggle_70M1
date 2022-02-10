@@ -1,0 +1,13 @@
+.quote-testimonial {
+    &__content {
+        max-width: $text-width;
+    }
+
+    &__blockquote {
+        margin: 0 0 $indent__s 0;
+
+        &:before, &:after {
+            content: '"';
+        }
+    }
+}

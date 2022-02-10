@@ -2,7 +2,7 @@
 
 setup_postdata( $post );
 
-$cardStyle = isset($cardStyle) ? $cardStyle : 'natural';
+$cardStyle = get_field('style') ? get_field('style') : 'card';
 
 if ($cardStyle === 'card') {
     $cardBg = get_field('card_style') ? get_field('card_style')['background_colour'] : 'transparent';
@@ -11,9 +11,15 @@ if ($cardStyle === 'card') {
 }
 
 ?>
-<article id="post-<?php the_ID(); ?>" class="bg-<?php echo $cardBg; ?> post-card post-card--<?php echo $cardStyle ?>">
-    <div class="post-card__image">
-        <?php the_tags( '<ul class="taglist small"><li>', '</li><li>', '</li></ul>' ); ?>
+<article id="post-<?php the_ID(); ?>" class="<?php echo $cardStyle === 'emphasised' ? 'grid' : ''; ?> bg-<?php echo $cardBg; ?> post-card post-card--<?php echo $cardStyle ?>">
+    <div class="post-card__image <?php echo $cardStyle === 'emphasised' ? 'col colspan-5' : ''; ?>">
+    <ul class="taglist small">    
+    <?php if (get_the_tags()) : the_tags( '<li>', '</li><li>', '</li>' ); ?>
+        <?php if (count(get_the_tags()) > 4) : ?>
+            <li><span class="excess-tags">+<?php echo (count(get_the_tags()) - 4); ?></span></li>
+    <?php endif; 
+        endif; ?>
+    </ul>
         <a class="post-card__link" href="<?php the_permalink(); ?>">
             <?php 
             $thumbnail_id = get_post_thumbnail_id( get_the_ID() );
@@ -25,7 +31,7 @@ if ($cardStyle === 'card') {
             </div>
         </a>
     </div>
-    <div class="post-card__content">
+    <div class="post-card__content <?php echo $cardStyle === 'emphasised' ? 'col colspan-7' : ''; ?>">
         <header class="entry-header">
             <?php if ( 'post' === get_post_type() ) : ?>
                 <div class="entry-meta small">
@@ -43,19 +49,26 @@ if ($cardStyle === 'card') {
         </div><!-- .entry-summary -->
 
         <footer class="entry-footer">
-            <?php if ($cardStyle === 'card' || $cardStyle === 'natural') {
+            <?php if ($cardStyle === 'natural') {
                     $buttons = array(array(
                     'link_url' => get_the_permalink(),
                     'link_text' => 'Read More',
                     'button_style' => 'outline',
-                    'button_colour' => get_field('button_colour')
+                    'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
                     ));
+                } elseif ($cardStyle === 'card') {
+                    $buttons = array(array(
+                        'link_url' => get_the_permalink(),
+                        'link_text' => 'Read More',
+                        'button_style' => 'fill',
+                        'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
+                        ));
                 } else {
                     $buttons = array(array(
                         'link_url' => get_the_permalink(),
                         'link_text' => 'Read More',
                         'button_style' => 'text',
-                        'button_colour' => get_field('button_colour')
+                        'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
                         ));
                 }
                 ?>
