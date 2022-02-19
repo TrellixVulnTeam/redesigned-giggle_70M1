@@ -49,7 +49,11 @@ endif;
     <div class="col colspan-4">
         <h2>Address</h2>
             <div class="map__location">
-                <ion-icon name="location-outline" class="large"></ion-icon>
+                <span class="large">
+                <?php 
+                    $iconName = 'location';
+                    require get_template_directory() . '/template-parts/components/icon.php'; ?>
+                </span>
                 <p class="large">
                     <span><?php echo isset($location['street_number']) ? $location['street_number'] : ''; ?></span>
                     <span><?php echo isset($location['street_name']) ? $location['street_name'] . '<br>' : ''; ?></span>
@@ -60,8 +64,20 @@ endif;
                 </p>
             </div>
             <?php if (get_field('contact_details')) : ?>
-                <p class="map__contact"><ion-icon class="large" name="call-outline"></ion-icon> <?php echo get_field('contact_details')['telephone_number']; ?></p>
-                <p class="map__contact"><ion-icon class="large" name="mail-outline"></ion-icon> <?php echo get_field('contact_details')['email_address']; ?></p>
+                <p class="map__contact">
+                    <span class="large">
+                    <?php 
+                        $iconName = 'call';
+                        require get_template_directory() . '/template-parts/components/icon.php'; ?>
+                    </span>
+                    <?php echo get_field('contact_details')['telephone_number']; ?></p>
+                <p class="map__contact">
+                    <span class="large">
+                    <?php 
+                        $iconName = 'mail';
+                        require get_template_directory() . '/template-parts/components/icon.php'; ?>
+                    </span> 
+                    <?php echo get_field('contact_details')['email_address']; ?></p>
             <?php endif; ?>
         </div>
     </div>

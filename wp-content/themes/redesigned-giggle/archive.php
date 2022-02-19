@@ -44,7 +44,12 @@ get_header();
 						*/ ?>
 						<li class="col colspan-4">
 
-							<?php require get_template_directory() . '/template-parts/post-card.php'; ?>
+							<?php 
+							if ( is_post_type_archive( 'staff' ) ) {
+								// Do stuff
+								$cardStyle = 'natural';
+						   }
+							require get_template_directory() . '/template-parts/post-card.php'; ?>
 					
 						</li>
 

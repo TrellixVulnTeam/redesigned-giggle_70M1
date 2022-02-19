@@ -10,7 +10,7 @@ function my_acf_init_block_types_banner() {
             'title'             => __('Banner'),
             'description'       => __('Create a promotional banner or slider'),
             'render_template'   => 'template-parts/blocks/banners/banner.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'align-full-width',
             'keywords'          => array( 'slider', 'banner', 'hero', 'promotion' ),
         ));

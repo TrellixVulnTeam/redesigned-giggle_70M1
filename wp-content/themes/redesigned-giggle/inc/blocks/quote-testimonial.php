@@ -10,7 +10,7 @@ function my_acf_init_block_types_quote_testimonial() {
             'title'             => __('Quote / Testimonials'),
             'description'       => __('Show a single quote or selection of testimonials'),
             'render_template'   => 'template-parts/blocks/quote/quote-testimonial.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'format-quote',
             'keywords'          => array( 'quote', 'testimonial', 'review'),
         ));

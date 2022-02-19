@@ -48,6 +48,12 @@ ul.grid {
 
 .col {
 	grid-column: span 12;
+
+	&.reverse {
+		@include from('small') {
+			order: -1;
+		}
+	}
 }
 
 .colspan-1 {

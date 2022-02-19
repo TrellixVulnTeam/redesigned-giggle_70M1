@@ -47,8 +47,8 @@ $isSlider = count($blockData['banner']) > 1 ? true : false;
                     <?php 
                         // $bgStyle = get_field('background_colours', 'option')['background_colour_' . $banner['background_colour']]['font_colour'] === 'bright' ? 'bg-dark' : '' ?>
                         <div class="container container--<?php echo get_field('block_spacing') ? get_field('block_spacing') : 'xl' ; ?>">
-                            <?php if (isset($banner['main_title']) && $title = $banner['main_title']) : ?><h2 class="xlarge"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
-                            <?php if (isset($banner['subtitle']) && $subtitle = $banner['subtitle']) : ?><h3 class="large"><?php echo $subtitle; ?></h3><?php endif; ?>
+                            <?php if (isset($banner['main_title']) && $title = $banner['main_title']) : ?><h2 class="xlarge has-huge-font-size"><?php echo $banner['main_title']; ?></h2><?php endif; ?>
+                            <?php if (isset($banner['subtitle']) && $subtitle = $banner['subtitle']) : ?><h3 class="large has-large-font-size"><?php echo $subtitle; ?></h3><?php endif; ?>
                             <?php if (isset($banner['content']) && $content = $banner['content']) : ?><p class="large"><?php echo $content; ?></p><?php endif; ?>
                             <?php if (isset($banner['buttons']) && $buttons = $banner['buttons']) {
                                 require get_template_directory() . '/template-parts/components/buttons.php';

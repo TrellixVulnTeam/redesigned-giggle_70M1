@@ -49,6 +49,10 @@ body {
     max-width: 1280px;
 }
 
-.wp-block p {
+h2.wp-block,
+h3.wp-block,
+h4.wp-block,
+h5.wp-block,
+p.wp-block {
     max-width: 800px;
 }

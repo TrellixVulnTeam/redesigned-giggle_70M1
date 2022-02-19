@@ -37,12 +37,12 @@ $blockData = [
             <h2><?php echo $blockData['title']; ?></h2>
         <?php endif; ?>
         <?php if ($blockData['logos']) : ?>
-            <ul class="logo-list grid">
+            <ul class="logo-list">
                 <?php foreach ($blockData['logos'] as $logo) : ?>
                     <?php 
                         $imageAlt = get_post_meta($logo['image']['ID'], '_wp_attachment_image_alt', true); 
                         $imageUrl = wp_get_attachment_url($logo['image']['ID'], 'redesigned-giggle-270-270' ); ?>
-                        <li class="logo-list__image col colspan-2">
+                        <li class="logo-list__image">
                             <?php require get_template_directory() . '/template-parts/components/image.php'; ?>
                         </li>
                 <?php endforeach; ?>

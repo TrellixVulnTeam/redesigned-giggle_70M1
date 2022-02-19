@@ -10,7 +10,7 @@ function my_acf_init_block_types_highlighted_content() {
             'title'             => __('Highlighted Content'),
             'description'       => __('Display a collection of content items (posts, jobs etc)'),
             'render_template'   => 'template-parts/blocks/highlighted-content/highlighted-content.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'excerpt-view',
             'keywords'          => array( 'latest', 'recent', 'highlighted', 'posts' ),
         ));

@@ -3,7 +3,7 @@
 $postsToShow = $postsToShow ? $postsToShow : '';
 $postType = $postType ? $postType : '';
 
-$postsPerRow = $postsToShow < 4 ? $postsToShow : 3;
+$postsPerRow = ($postsToShow < 4 && $postsToShow !== -1) ? $postsToShow : 3;
 
 $posts = get_posts(array(
 	'posts_per_page'	=> $postsToShow,

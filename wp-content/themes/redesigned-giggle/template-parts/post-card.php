@@ -2,7 +2,8 @@
 
 setup_postdata( $post );
 
-$cardStyle = get_field('style') ? get_field('style') : 'card';
+$cardStyle = get_field('style') ? get_field('style') : (isset($cardStyle) ? $cardStyle : 'card');
+$showButton = isset($showButton) ? $showButton : true;
 
 if ($cardStyle === 'card') {
     $cardBg = get_field('card_style') ? get_field('card_style')['background_colour'] : 'transparent';
@@ -47,35 +48,36 @@ if ($cardStyle === 'card') {
         <div class="entry-summary <?php echo $cardStyle === 'emphasised' ? 'large' : ''; ?>">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
-
-        <footer class="entry-footer">
-            <?php if ($cardStyle === 'natural') {
-                    $buttons = array(array(
-                    'link_url' => get_the_permalink(),
-                    'link_text' => 'Read More',
-                    'button_style' => 'outline',
-                    'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
-                    ));
-                } elseif ($cardStyle === 'card') {
-                    $buttons = array(array(
+        <?php if ($showButton) : ?>
+            <footer class="entry-footer">
+                <?php if ($cardStyle === 'natural' || $cardStyle === 'staff' ) {
+                        $buttons = array(array(
                         'link_url' => get_the_permalink(),
                         'link_text' => 'Read More',
-                        'button_style' => 'fill',
+                        'button_style' => 'outline',
                         'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
                         ));
-                } else {
-                    $buttons = array(array(
-                        'link_url' => get_the_permalink(),
-                        'link_text' => 'Read More',
-                        'button_style' => 'text',
-                        'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
-                        ));
-                }
-                ?>
-            <?php if ($buttons) {
-                require get_template_directory() . '/template-parts/components/buttons.php';
-            } ?>
-        </footer><!-- .entry-footer -->
+                    } elseif ($cardStyle === 'card') {
+                        $buttons = array(array(
+                            'link_url' => get_the_permalink(),
+                            'link_text' => 'Read More',
+                            'button_style' => 'fill',
+                            'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
+                            ));
+                    } else {
+                        $buttons = array(array(
+                            'link_url' => get_the_permalink(),
+                            'link_text' => 'Read More',
+                            'button_style' => 'text',
+                            'button_colour' => get_field('button_colour') ? get_field('button_colour') : '1'
+                            ));
+                    }
+                    ?>
+                <?php if ($buttons) {
+                    require get_template_directory() . '/template-parts/components/buttons.php';
+                } ?>
+            </footer><!-- .entry-footer -->
+        <?php endif; ?>
     </div>
 </article><!-- #post-<?php the_ID(); ?> -->
 

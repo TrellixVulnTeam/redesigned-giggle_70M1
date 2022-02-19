@@ -10,7 +10,7 @@ function my_acf_init_block_types_trustpilot() {
             'title'             => __('Trustpilot Reviews'),
             'description'       => __('Add a Trustpilot widget.'),
             'render_template'   => 'template-parts/blocks/integrations/trustpilot.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'star-filled',
             'keywords'          => array( 'reviews', 'trustpilot', 'feefo' ),
         ));

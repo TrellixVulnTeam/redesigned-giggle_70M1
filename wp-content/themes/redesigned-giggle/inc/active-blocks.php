@@ -12,7 +12,6 @@ function redesigned_giggle_allowed_block_types( $allowed_blocks ) {
 		'core/paragraph',
 		'core/heading',
 		'core/list',
-		'core/media-text',
 		'core/shortcode',
 		'core/table',
 		'core/code',
@@ -24,7 +23,17 @@ function redesigned_giggle_allowed_block_types( $allowed_blocks ) {
 		'acf/quote-testimonial',
 		'acf/banner',
 		'acf/trustpilot',
-		'acf/map'
+		'acf/map',
+		'acf/share-page',
+		'acf/accordion',
+		'acf/form',
+		'acf/image-gallery',
+		'acf/price-list',
+		'acf/services',
+		'acf/stats',
+		'acf/download',
+		'acf/staff',
+		'acf/media-text'
 	);
  
 }

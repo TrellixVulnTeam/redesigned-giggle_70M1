@@ -204,11 +204,15 @@
 		if ($noticeBar['show_notice_bar']) :?>
 			<header class="notice-bar bg-<?php echo $noticeBar['appearance']['background_colour']; ?>">
 				<div class="notice-bar__inner container container--xs">
-					<ion-icon class="" name="<?php echo $noticeBar['appearance']['icon']; ?>"></ion-icon>
+					<?php 
+						$iconName = 'alert';
+						require get_template_directory() . '/template-parts/components/icon.php'; ?>
 					<span class="small"><?php echo $noticeBar['appearance']['content']; ?></span>
 					<button class="bg-<?php echo $noticeBar['appearance']['background_colour']; ?> close-notice-bar">
 						<span class="screen-reader-text">Close</span>
-						<ion-icon name="close-outline"></ion-icon>
+						<?php 
+							$iconName = 'close';
+							require get_template_directory() . '/template-parts/components/icon.php'; ?>
 					</button>
 				</div>
 			</header>
@@ -277,8 +281,16 @@
 				<?php if ($header['show_contact_details']) : ?>
 					<ul class="small-up header-contact container-sup container-sup--xs">
 						<?php $headerContact = get_field('contact_details', 'option')['contact_details']; ?>
-						<li><ion-icon class="large" name="call-outline"></ion-icon> <span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
-						<li><ion-icon class="large" name="mail-outline"></ion-icon> <span class="small"><?php echo $headerContact['email_address']; ?></span></li>
+						<li>
+						<?php 
+							$iconName = 'call';
+							require get_template_directory() . '/template-parts/components/icon.php'; ?>
+						<span class="small"><?php echo $headerContact['telephone_number']; ?></span></li>
+						<li>
+							<?php 
+								$iconName = 'mail';
+								require get_template_directory() . '/template-parts/components/icon.php'; ?>
+							<span class="small"><?php echo $headerContact['email_address']; ?></span></li>
 					</ul>
 				<?php endif; ?>
 			</div>

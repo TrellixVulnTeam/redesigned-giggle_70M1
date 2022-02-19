@@ -10,7 +10,7 @@ function my_acf_init_block_types_logos_block() {
             'title'             => __('Logos Block'),
             'description'       => __('Display a selection of logos (eg. clients, partners or awards)'),
             'render_template'   => 'template-parts/blocks/logos/logo-block.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'nametag',
             'keywords'          => array( 'logos', 'partners', 'clients'),
         ));

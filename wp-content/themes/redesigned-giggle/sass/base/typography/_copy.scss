@@ -50,14 +50,15 @@ big, .large {
 	font-size: $font-size-rel__large;
 }
 
-h3.large {
+h3.large, dt.large {
 	@include from('medium') {
 		font-size: $font-size-rel__h2;
 	}
 }
 
 .xlarge {
-	@include from('medium') {
+	font-size: $font-size-rel__large;
+	@include from('small') {
 		font-size: $font-size-rel__xlarge;
 		line-height: 1.1;
 	}

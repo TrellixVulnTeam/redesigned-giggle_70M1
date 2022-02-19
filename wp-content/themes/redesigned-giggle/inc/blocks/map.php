@@ -10,7 +10,7 @@ function my_acf_init_block_types_map() {
             'title'             => __('Google Map'),
             'description'       => __('Embed a Google Map'),
             'render_template'   => 'template-parts/blocks/map/map.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'location-alt',
             'keywords'          => array( 'google', 'map', 'location' ),
         ));

@@ -1,0 +1,11 @@
+.stats {
+    dt {
+        align-self: end;
+    }
+    
+    dd {
+        @include from('medium') {
+            grid-row: 2;
+        }
+    }
+}

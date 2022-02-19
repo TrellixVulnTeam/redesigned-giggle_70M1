@@ -10,7 +10,7 @@ function my_acf_init_block_types_cta() {
             'title'             => __('Call-to-Action'),
             'description'       => __('Direct users with a call-to-action'),
             'render_template'   => 'template-parts/blocks/call-to-action/call-to-action.php',
-            'category'          => 'highlights',
+            'category'          => 'tapestry',
             'icon'              => 'admin-comments',
             'keywords'          => array( 'cta', 'button' ),
         ));

@@ -1,0 +1,23 @@
+.share-this-page {
+    .share-list {
+        display: flex;
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+
+        &__item {
+            a {
+                display: flex;
+                align-items: center;
+    
+                > span {
+                    padding-left: $indent__xxs;
+                }
+            }
+
+            &:nth-of-type(n+2) {
+                margin-left: $indent__s;
+            }
+        }
+    }
+}

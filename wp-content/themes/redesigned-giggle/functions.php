@@ -189,6 +189,9 @@ if ( class_exists( 'WooCommerce' ) ) {
  */
 require get_template_directory() . '/inc/options-pages/options-pages.php';
 
+// Choose which forms to support
+require_once get_template_directory() . '/inc/theme-functions/form-select.php';
+
 /**
  * Load Active gutenburg blocks file.
  */
@@ -251,6 +254,7 @@ add_action( 'enqueue_block_editor_assets', function() {
     wp_enqueue_style( 'editor-styles', get_stylesheet_directory_uri() . "/style.css", false, '1.0', 'all' );
     wp_enqueue_style( 'editor-styles-vars', get_stylesheet_directory_uri() . "/editor.css", false, '1.0', 'all' );
 } );
+add_action('wp_enqueue_scripts','enqueue_if_block_is_present_accordion');
 
 /**
  * Handle image sizes.
@@ -291,3 +295,4 @@ add_action('acf/init', 'my_acf_init');
 add_filter('get_the_archive_title_prefix','__return_false');
 
 require_once dirname(__FILE__).'/vendor/autoload.php';
+

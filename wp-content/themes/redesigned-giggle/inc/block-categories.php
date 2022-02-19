@@ -14,8 +14,8 @@ function wpdocs_add_new_block_category( $block_categories, $block_editor_context
         $block_categories,
         [
             [
-                'slug'  => 'highlights',
-                'title' => esc_html__( 'Highlights', 'highlights' ),
+                'slug'  => 'tapestry',
+                'title' => esc_html__( 'Tapestry', 'tapestry' ),
                 'icon'  => 'admin-appearance', // Slug of a WordPress Dashicon or custom SVG
             ],
         ]

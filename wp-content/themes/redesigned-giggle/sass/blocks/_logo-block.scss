@@ -1,16 +1,31 @@
 .logo-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 0;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+
     &__image {
         display: flex;
         align-items: center;
         justify-content: center;
         grid-column: span 6;
-
-        @include from('small') {
-            grid-column: span 4;
-        }
+        flex-basis: 50%;
+        padding: ceil($indent__s / 2);
+        
+                // @include from('xsmall') {
+                //     flex-basis: 33.33%;
+                //     padding: ceil($indent__base / 2);
+                // }
+        
+                @include from('small') {
+                    flex-basis: 33.33%;
+                    padding: ceil($indent__base / 2);
+                }
 
         @include from('medium') {
-            grid-column: span 3;
+            flex-basis: 25%;
         }
     }
 }

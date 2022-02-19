@@ -30,6 +30,57 @@ require get_template_directory() . '/inc/blocks/quote-testimonial.php';
 require get_template_directory() . '/inc/blocks/trustpilot.php';
 
 /**
- * Load trustpilot reviews block file.
+ * Load maps block file.
  */
 require get_template_directory() . '/inc/blocks/map.php';
+
+
+/**
+ * Load social sharing block file.
+ */
+require get_template_directory() . '/inc/blocks/share-this-page.php';
+
+/**
+ * Load accordion block file.
+ */
+require get_template_directory() . '/inc/blocks/accordion.php';
+
+/**
+ * Load form block file.
+ */
+require get_template_directory() . '/inc/blocks/form.php';
+
+/**
+ * Load image gallery block file.
+ */
+require get_template_directory() . '/inc/blocks/image-gallery.php';
+
+/**
+ * Load price-list block file.
+ */
+require get_template_directory() . '/inc/blocks/price-list.php';
+
+/**
+ * Load servies block file.
+ */
+require get_template_directory() . '/inc/blocks/services.php';
+
+/**
+ * Load stats block file.
+ */
+require get_template_directory() . '/inc/blocks/stats.php';
+
+/**
+ * Load stats block file.
+ */
+require get_template_directory() . '/inc/blocks/download.php';
+
+/**
+ * Load staff grid block file.
+ */
+require get_template_directory() . '/inc/blocks/staff.php';
+
+/**
+ * Load staff grid block file.
+ */
+require get_template_directory() . '/inc/blocks/media-text.php';

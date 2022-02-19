@@ -1,0 +1,16 @@
+.gallery {
+    p {
+        margin-left: 0
+    }
+
+    h2, p {
+        + .image-list-wrap {
+            margin-top: $indent__base;
+        }
+    }
+}
+
+.image-list {
+    @include listReset;
+    list-style-type: none !important;
+}
